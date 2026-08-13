@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>INFORMÁTICA ORIENTADA A PROGRAMACIÓN · IPDVM</title>
+  <meta name="description" content="Bachillerato Técnico Profesional en Informática orientada a programación · Instituto Polivalente Dr. Doroteo Varela Mejía">
+  <style>
+    /* ==================================================
+       INFORMÁTICA IPDVM 2026
+       Developed by Angel Hernández
+    =================================================== */
+
+    :root{
+      /* IPDVM TECH palette */
+      --bg:#080B12; /* Fondo principal */
+      --panel:#0D1422; /* Fondo secundario */
+      --card:#111B2D; /* Tarjetas / contenedores */
+      --border:#243550; /* Bordes */
+      --text:#F5F7FA; /* Texto principal */
+      --muted:#9AA8BC; /* Texto secundario */
+      --accent:#3B82F6; /* Acento principal */
+      --accent-2:#22D3EE; /* Acento secundario */
+      --accent-3:#22C55E; /* Acento complementario (usar muy poco) */
+      /* Translucent accent helpers */
+      --accent-shadow: rgba(59,130,246,0.08);
+      --accent-border: rgba(59,130,246,0.06);
+      --accent-ghost: rgba(59,130,246,0.03);
+      --accent-glow: rgba(59,130,246,0.12);
+      --accent2-06: rgba(34,211,238,0.06);
+      --accent2-02: rgba(34,211,238,0.02);
+      --card-border-hover: rgba(59,130,246,0.12);
+      --card-glow: rgba(59,130,246,0.06);
+      --glass: rgba(17,27,45,0.65);
+      --glass-2: rgba(17,27,45,0.45);
+      --card-shadow: 0 6px 18px rgba(3,6,12,0.6);
+      --radius:14px;
+      --max-width:1100px;
+      --gap:18px;
+      --glass-border: rgba(36,53,80,0.18);
+      --shadow-soft: 0 4px 15px rgba(15,23,42,0.06);
+      --shadow-hover: 0 15px 35px rgba(15,23,42,0.12);
+      --nav-overlay-1: rgba(17,27,45,0.04);
+      --nav-overlay-2: rgba(17,27,45,0.02);
+      --panel-overlay-1: rgba(17,27,45,0.06);
+      --panel-overlay-2: rgba(17,27,45,0.03);
+      --card-soft-1: rgba(17,27,45,0.06);
+      --card-soft-2: rgba(17,27,45,0.02);
+      --btn-transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, background-color 0.35s ease, color 0.35s ease;
+      --card-transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.55s ease, border-color 0.55s ease;
+      color-scheme: dark;
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:linear-gradient(180deg,var(--bg) 0%, var(--panel) 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      overflow-x:hidden;
+      transition:background .65s cubic-bezier(0.22,1,0.36,1), color .55s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    a{color:var(--accent);text-decoration:none}
+
+    main{max-width:var(--max-width);margin:0 auto;padding:18px}
+
+    /* NAV */
+    header{position:fixed;inset:0 0 auto 0;z-index:60}
+    .nav-wrap{backdrop-filter: blur(8px);background:linear-gradient(180deg, var(--nav-overlay-1), var(--nav-overlay-2));
+      border:1px solid var(--glass-border);margin:12px;border-radius:12px;max-width:calc(100% - 24px);padding:8px 10px;display:flex;align-items:center;gap:12px}
+
+    button, .nav-links a, .hamburger, .theme-toggle, .lb-btn, .btn{transition: var(--btn-transition)}
+    .btn, .theme-toggle, .hamburger, .lb-btn{will-change: transform;}
+
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:44px;width:44px;object-fit:contain;border-radius:8px;background:linear-gradient(135deg,var(--panel) 0%, var(--card) 100%);padding:6px}
+    .brand .titles{line-height:1}
+    .brand .titles .institute{font-weight:600;font-size:13px;color:var(--muted)}
+    .brand .titles .career{font-weight:800;font-size:14px;letter-spacing:1px}
+
+    nav{margin-left:auto;display:flex;align-items:center;gap:8px}
+    .nav-links{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav-links a{
+      position:relative;display:inline-flex;align-items:center;justify-content:center;padding:9px 12px;border-radius:10px;font-weight:600;color:var(--text);
+      background:linear-gradient(180deg, var(--glass), var(--glass-2));
+      border:1px solid var(--glass-border);box-shadow:var(--shadow-soft);
+      transition:transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease, border-color 0.5s ease, background-color 0.5s ease;
+    }
+    .nav-links a:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(15,23,42,0.12);border-color:var(--card-border-hover);background:linear-gradient(90deg,var(--accent), var(--accent-2));color:#021014;transition:background 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease}
+    .nav-links a.active{border-color:var(--accent-border);background:linear-gradient(180deg, rgba(59,130,246,0.08), rgba(59,130,246,0.04));box-shadow:0 10px 22px rgba(59,130,246,0.16);color:var(--text)}
+    .nav-links a.active::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg, rgba(59,130,246,0.05), transparent);pointer-events:none;}
+
+    .hamburger{display:none;background:transparent;border:0;color:var(--muted);font-size:22px;padding:6px;cursor:pointer;align-items:center;justify-content:center;border-radius:10px}
+    .hamburger:hover{transform:translateY(-1px)}
+    .hamburger:active{transform:translateY(1px) scale(0.98)}
+
+    /* HERO */
+    .hero{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:86px 18px 40px}
+    .hero-inner{width:100%;max-width:980px;background:linear-gradient(180deg, var(--panel-overlay-1), var(--panel-overlay-2));border-radius:18px;padding:26px;display:grid;gap:12px;grid-template-columns:1fr;box-shadow:var(--card-shadow);border:1px solid var(--glass-border)}
+    .hero-grid{display:flex;gap:16px;align-items:center}
+    .hero-left{flex:1}
+    .hero-right{flex:1;display:flex;align-items:center;justify-content:center}
+
+    .hero h1{font-size:48px;margin:0;letter-spacing:2px}
+    .hero p.lead{margin:6px 0 18px;color:var(--muted);font-size:15px}
+
+    .cta{display:flex;gap:12px;align-items:center}
+    .btn{background:linear-gradient(90deg,var(--accent), var(--accent-2));color:#021014;padding:12px 16px;border-radius:12px;font-weight:700;border:0;cursor:pointer;box-shadow:0 8px 30px var(--accent-shadow)}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px var(--accent-shadow);background:linear-gradient(90deg,var(--accent), var(--accent-2));transition:background 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;color:#021014}
+    .btn:active{transform:translateY(1px) scale(0.98)}
+    .btn.secondary{background:transparent;color:var(--muted);border:1px solid var(--glass-border)}
+    .btn.secondary:hover{border-color:var(--accent-border);color:var(--text)}
+
+    /* subtle tech background */
+    .tech-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0.6}
+    .tech-canvas{width:100%;height:100%}
+
+    /* Sections */
+    section{margin:28px 0;padding:16px}
+    h2.section-title{font-size:20px;margin:0 0 12px}
+
+    .panel{background:linear-gradient(180deg, var(--panel-overlay-1), var(--panel-overlay-2));padding:14px;border-radius:12px;border:1px solid var(--glass-border);box-shadow:var(--card-shadow)}
+
+    /* Perfil tarjetas */
+    .grid{display:grid;gap:var(--gap)}
+    .grid.cards-3{grid-template-columns:repeat(3,1fr)}
+    .card{background:linear-gradient(180deg,var(--glass),var(--glass-2));padding:14px;border-radius:12px;border:1px solid var(--glass-border);transition:var(--card-transition);cursor:pointer;box-shadow:var(--shadow-soft)}
+    @media (hover: hover) {
+      .card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover);border-color:var(--card-border-hover)}
+    }
+    .card:focus{transform:translateY(-6px);box-shadow:var(--shadow-hover);border-color:var(--card-border-hover);outline:0}
+    .card .icon{height:48px;width:48px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(180deg, var(--card-soft-1), var(--card-soft-2));margin-bottom:8px}
+    .card h3{margin:6px 0 8px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Formación */
+    .areas{display:flex;flex-direction:column;gap:12px}
+    .area{display:flex;gap:12px;align-items:center}
+    .area .dot{height:12px;width:12px;border-radius:50%;background:var(--accent);box-shadow:0 2px 12px var(--accent-glow)}
+
+    /* Malla */
+    .malla-card{display:flex;gap:16px;align-items:center;padding:18px}
+    .malla-card .doc{height:84px;width:84px;border-radius:10px;background:linear-gradient(135deg,var(--panel),var(--card));display:flex;align-items:center;justify-content:center}
+    .malla-card .doc svg{width:44px;height:44px;fill:var(--accent)}
+
+    /* Proyectos */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .project{display:flex;flex-direction:column;border-radius:12px;overflow:hidden}
+    .project .thumb{height:160px;background:linear-gradient(135deg,var(--panel),var(--card));display:flex;align-items:center;justify-content:center;color:var(--muted)}
+    .project .meta{padding:10px}
+
+    /* Galería masonry */
+    .masonry{column-count:2;column-gap:12px}
+    .masonry figure{break-inside:avoid;margin:0 0 12px;border-radius:12px;overflow:hidden;position:relative}
+    .masonry img{width:100%;height:auto;display:block;border-radius:12px;transition:transform .3s ease,filter .3s ease}
+    .masonry figure .caption{position:absolute;left:8px;bottom:8px;color:var(--text);background:linear-gradient(90deg,rgba(0,0,0,0.6), rgba(0,0,0,0.2));padding:6px 8px;border-radius:8px;font-size:13px}
+    .masonry img:hover{transform:scale(1.03)}
+
+    /* Galería editorial */
+    .gallery-shell{padding:8px 0 0}
+    .gallery-header{margin-bottom:16px}
+    .gallery-kicker{margin:8px 0 0;color:var(--muted);font-size:15px;letter-spacing:0.02em}
+    .grade-switcher{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+    .gallery-grade{appearance:none;border:1px solid var(--glass-border);background:linear-gradient(180deg, var(--glass), var(--glass-2));color:var(--muted);border-radius:12px;padding:10px 16px;font-weight:700;letter-spacing:0.03em;cursor:pointer;box-shadow:var(--shadow-soft);transition:transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease, border-color 0.45s ease, background 0.6s cubic-bezier(0.22,1,0.36,1), color 0.45s ease}
+    .gallery-grade:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(15,23,42,0.12);border-color:var(--card-border-hover);background:linear-gradient(90deg,var(--accent), var(--accent-2));color:#021014}
+    .gallery-grade.is-active{border-color:var(--accent-border);background:linear-gradient(90deg,var(--accent), var(--accent-2));box-shadow:0 10px 22px rgba(59,130,246,0.16);color:#021014}
+    .grade-panel{display:none;animation:gradeFade 0.7s cubic-bezier(0.22, 1, 0.36, 1)}
+    .gallery-masonry{column-count:3;column-gap:14px}
+    @media (max-width: 900px){.gallery-masonry{column-count:2}}
+    @media (max-width: 560px){.gallery-masonry{column-count:1}.grade-switcher{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:8px}.gallery-grade{padding:10px 8px;text-align:center;font-size:13px}}
+    .grade-panel.is-visible{display:block}
+    .grade-copy{display:flex;flex-direction:column;gap:6px;padding:0 0 14px}
+    .grade-copy h3{margin:0;font-size:clamp(1.4rem, 2vw, 2rem);letter-spacing:0.04em}
+    .grade-copy p{margin:0;color:var(--muted);font-size:15px}
+    .gallery-masonry{column-count:3;column-gap:14px}
+    .gallery-item{break-inside:avoid;margin:0 0 14px}
+    .gallery-figure{position:relative;display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer;overflow:hidden;border-radius:18px;box-shadow:var(--shadow-soft);transition:transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.55s ease}
+    .gallery-figure:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover)}
+    .gallery-figure img{display:block;width:100%;height:clamp(170px, 22vw, 330px);object-fit:cover;border-radius:18px;transition:transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease, opacity 0.6s ease}
+    .gallery-figure:hover img{transform:scale(1.08);filter:brightness(0.72) saturate(1.1)}
+    .gallery-item.tall .gallery-figure img{height:clamp(240px, 32vw, 450px)}
+    .gallery-item.wide .gallery-figure img{height:clamp(150px, 18vw, 230px)}
+    .gallery-item.small .gallery-figure img{height:clamp(140px, 16vw, 220px)}
+    .gallery-info{position:absolute;inset:auto 0 0 0;display:flex;align-items:center;justify-content:space-between;padding:12px 12px 10px;background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.72));opacity:0;transition:opacity 0.45s ease}
+    .gallery-figure:hover .gallery-info{opacity:1}
+    .gallery-info span{font-size:12px;color:rgba(255,255,255,0.9);font-weight:600}
+    .gallery-magnify{width:30px;height:30px;border-radius:999px;border:1px solid rgba(255,255,255,0.22);display:grid;place-items:center;background:rgba(10,16,24,0.32);font-weight:700;color:#fff;font-size:18px;line-height:1}
+    @keyframes gradeFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.82);display:flex;align-items:center;justify-content:center;z-index:120;padding:18px;opacity:0;visibility:hidden;transition:opacity 0.4s ease, visibility 0.4s ease}
+    .lightbox.open{opacity:1;visibility:visible}
+    .lightbox img{max-width:96%;max-height:86%;border-radius:12px;box-shadow:0 18px 60px rgba(0,0,0,0.5)}
+    .lb-controls{position:fixed;left:12px;right:12px;bottom:28px;display:flex;justify-content:space-between;gap:12px}
+    .lb-btn{background:rgba(17,27,45,0.06);border:1px solid var(--glass-border);color:var(--muted);padding:10px 12px;border-radius:10px}
+
+    /* Theme toggle button */
+    .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:8px;border-radius:10px;border:1px solid var(--glass-border);background:rgba(255,255,255,0.02);color:var(--muted);cursor:pointer;transform-origin:center;box-shadow:var(--shadow-soft);position:relative;overflow:hidden}
+    .theme-toggle:hover{transform:translateY(-1px)}
+    .theme-toggle:active{transform:translateY(1px) scale(0.98)}
+    .theme-toggle.is-animating{transform:translateY(-3px) rotate(8deg);}
+    .theme-toggle.is-animating::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg, rgba(255,255,255,0.08), transparent);}
+    .theme-toggle svg{width:18px;height:18px;display:block;transition:transform .45s cubic-bezier(0.22,1,0.36,1), stroke .3s ease, fill .3s ease;}
+    .theme-toggle[data-theme="light"]{color:#FACC15;box-shadow:0 8px 20px rgba(250,204,21,0.18);border-color:rgba(250,204,21,0.28)}
+    .theme-toggle[data-theme="light"] svg{transform:rotate(8deg);fill:#FACC15;stroke:#FACC15;}
+
+    /* Light theme overrides */
+    :root[data-theme="light"], [data-theme="light"]{
+      --bg:#EEF2F7;
+      --panel:#F8FAFC;
+      --card:#FFFFFF;
+      --border:#D7DEE8;
+      --text:#172033;
+      --muted:#64748B;
+      --accent:#2563EB;
+      --accent-2:#3B82F6;
+      --accent-3:#0891B2;
+      --glass: rgba(255,255,255,0.9);
+      --glass-2: rgba(245,247,250,0.9);
+      --glass-border: rgba(215,222,232,0.9);
+      --card-border-hover: rgba(37,99,235,0.24);
+      --card-glow: rgba(37,99,235,0.08);
+      --accent-shadow: rgba(37,99,235,0.08);
+      --accent-border: rgba(37,99,235,0.14);
+      --accent-ghost: rgba(219,234,254,0.72);
+      --accent-glow: rgba(37,99,235,0.12);
+      --accent2-06: rgba(59,130,246,0.08);
+      --accent2-02: rgba(59,130,246,0.03);
+      --shadow-soft: 0 4px 15px rgba(15,23,42,0.08);
+      --shadow-hover: 0 15px 35px rgba(15,23,42,0.12);
+      --card-shadow: 0 10px 25px rgba(15,23,42,0.08);
+      --nav-overlay-1: rgba(255,255,255,0.7);
+      --nav-overlay-2: rgba(255,255,255,0.42);
+      --panel-overlay-1: rgba(255,255,255,0.9);
+      --panel-overlay-2: rgba(245,247,250,0.9);
+      --card-soft-1: rgba(219,234,254,0.7);
+      --card-soft-2: rgba(229,236,255,0.65);
+      color-scheme: light;
+    }
+
+    /* Videos */
+    .videos-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .video-card video{width:100%;height:auto;border-radius:10px;display:block}
+
+    /* Footer */
+    footer{padding:18px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* Responsiveness mobile-first */
+    @media(min-width:700px){
+      .masonry{column-count:3}
+      .projects{grid-template-columns:repeat(3,1fr)}
+      .grid.cards-3{grid-template-columns:repeat(3,1fr)}
+      .hero h1{font-size:56px}
+      .hamburger{display:none}
+    }
+
+    @media(max-width:699px){
+      .nav-links{display:none}
+      .hamburger{display:inline-flex}
+      .hero h1{font-size:36px}
+      .masonry{column-count:2}
+    }
+
+    @media(min-width:1100px){
+      .hero-grid{gap:30px}
+      .hero-inner{padding:36px}
+      .hero-left{padding:8px}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .center{display:flex;align-items:center;justify-content:center}
+
+    /* Reveal animation */
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+  </style>
+</head>
+<body>
+
+
+<!--
+    INFORMÁTICA IPDVM 2026
+    Developed by Angel Hernández
+-->
+
+  <header>
+    <div class="nav-wrap" role="banner">
+      <div class="brand">
+        <img src="assets/img/logo/logo-ipdvm.png" alt="Logo IPDVM" loading="lazy">
+        <div class="titles">
+          <div class="institute">INSTITUTO POLIVALENTE</div>
+          <div class="career">DR. DOROTEO VARELA MEJÍA · INFORMÁTICA ORIENTADA A PROGRAMACIÓN</div>
+        </div>
+      </div>
+
+      <nav aria-label="Menú principal">
+        <button class="hamburger" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+        </button>
+        <div id="nav-links" class="nav-links" role="navigation">
+          <a href="#inicio">Inicio</a>
+          <a href="#conoce">La carrera</a>
+          <a href="#perfil">Perfil</a>
+          <a href="#formacion">Formación</a>
+          <a href="#malla">Malla curricular</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#galeria">Galería</a>
+          <a href="#videos">Videos</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-pressed="false" title="Cambiar tema" aria-label="Cambiar tema">
+          <!-- icon placeholder: will be updated via JS -->
+          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="tech-bg" aria-hidden="true">
+    <svg class="tech-canvas" viewBox="0 0 1200 600" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0" stop-color="#0D1422" stop-opacity="0.6" />
+          <stop offset="1" stop-color="#0D1422" stop-opacity="0.0" />
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="600" fill="url(#g1)"></rect>
+      <!-- sutil grid -->
+      <g stroke="rgba(245,247,250,0.03)" stroke-width="1">
+        <path d="M20 100 L1180 100" />
+        <path d="M20 200 L1180 200" />
+        <path d="M20 300 L1180 300" />
+        <path d="M20 400 L1180 400" />
+      </g>
+    </svg>
+  </div>
+
+  <main id="inicio">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner panel reveal" id="heroInner">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <img src="assets/img/logo/logo-ipdvm.png" alt="Logo IPDVM" style="height:72px;width:72px;object-fit:contain;border-radius:10px;margin-bottom:10px" loading="lazy">
+            <h1>INFORMÁTICA ORIENTADA A PROGRAMACIÓN</h1>
+            <p class="lead">Bachillerato Técnico Profesional en Informática orientada a programación — Donde las ideas se convierten en tecnología.</p>
+            <div class="cta">
+              <button class="btn" id="explorar">EXPLORAR LA CARRERA</button>
+              <a class="btn secondary" href="#conoce">Saber más</a>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div style="width:100%;max-width:360px">
+              <div style="background:linear-gradient(135deg, var(--accent2-06), var(--accent2-02));padding:16px;border-radius:12px;border:1px solid var(--glass-border)">
+                <div style="height:220px;border-radius:10px;background:linear-gradient(135deg,var(--panel),var(--card));display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700">Fotografía próximamente</div>
+                <div style="display:flex;gap:8px;margin-top:10px;align-items:center;justify-content:space-between"><small class="muted">Explora proyectos, fotos y videos</small><small class="muted">2026</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONOCE LA CARRERA -->
+    <section id="conoce">
+      <div class="panel reveal">
+        <h2 class="section-title">CONOCE INFORMÁTICA ORIENTADA A PROGRAMACIÓN</h2>
+        <div class="grid" style="grid-template-columns:1fr;gap:12px">
+          <div style="display:grid;grid-template-columns:1fr;gap:12px">
+            <p style="margin:0;color:var(--muted)">En el Bachillerato Técnico Profesional en Informática desarrollamos conocimientos y habilidades relacionadas con la tecnología, la programación, el desarrollo de soluciones digitales y el trabajo en equipo.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">
+              <div class="card" style="min-width:160px"> <h3>Visión</h3><p class="muted">Ser un área de formación reconocida por impulsar la innovación, el aprendizaje tecnológico y el desarrollo integral de nuestros estudiantes, preparándolos para crear, transformar y aportar soluciones al futuro mediante la tecnología.</p></div>
+              <div class="card" style="min-width:160px"> <h3>Misión</h3><p class="muted">Formar estudiantes con conocimientos y habilidades en informática, capaces de desarrollar soluciones tecnológicas con creatividad, responsabilidad y pensamiento crítico, preparándolos para responder a las necesidades de un mundo cada vez más digital.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERFIL -->
+    <section id="perfil">
+      <h2 class="section-title">PERFIL DEL ESTUDIANTE</h2>
+      <div class="grid cards-3">
+        <!-- tarjetas -->
+        <div class="card reveal" tabindex="0">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 2h4a4 4 0 0 1 0 8h-4a4 4 0 0 1 0-8z"></path></svg></div>
+          <h3>Pensamiento lógico</h3>
+          <p class="muted">Desarrolla la capacidad de analizar problemas de forma estructurada.</p>
+        </div>
+        <div class="card reveal" tabindex="0">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2h-4"></path><path d="M17.5 8.5a6 6 0 1 0-8.5 8.5L21 3"/></svg></div>
+          <h3>Resolución de problemas</h3>
+          <p class="muted">Aprende metodologías para encontrar soluciones eficientes.</p>
+        </div>
+        <div class="card reveal" tabindex="0">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+          <h3>Programación</h3>
+          <p class="muted">Fundamentos de programación y pensamiento algorítmico.</p>
+        </div>
+        <div class="card reveal" tabindex="0">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0-8-8"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+          <h3>Creatividad</h3>
+          <p class="muted">Capacidad para diseñar soluciones con un enfoque creativo.</p>
+        </div>
+        <div class="card reveal" tabindex="0">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-3-3.87"></path><path d="M7 21v-2a4 4 0 0 1 3-3.87"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+          <h3>Trabajo en equipo</h3>
+          <p class="muted">Colabora en proyectos con comunicación efectiva.</p>
+        </div>
+        <div class="card reveal" tabindex="0">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+          <h3>Responsabilidad</h3>
+          <p class="muted">Ética y compromiso con el trabajo académico y práctico.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMACIÓN -->
+    <section id="formacion">
+      <h2 class="section-title">¿QUÉ APRENDEMOS?</h2>
+      <div class="panel reveal">
+        <div class="areas">
+          <div class="area"><span class="dot" aria-hidden></span><div><strong>Programación</strong><div class="muted">Ejemplos: lógica, algoritmos, proyectos.</div></div></div>
+          <div class="area"><span class="dot"></span><div><strong>Desarrollo web</strong><div class="muted">HTML, CSS, JavaScript y experiencia de usuario.</div></div></div>
+          <div class="area"><span class="dot"></span><div><strong>Bases de datos</strong><div class="muted">Modelado y consultas (áreas ilustrativas).</div></div></div>
+          <div class="area"><span class="dot"></span><div><strong>Redes y Sistemas</strong><div class="muted">Conceptos de redes y administración básica.</div></div></div>
+          <div class="area"><span class="dot"></span><div><strong>Seguridad informática</strong><div class="muted">Buenas prácticas y concienciación.</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MALLA CURRICULAR -->
+    <section id="malla">
+      <h2 class="section-title">MALLA CURRICULAR</h2>
+      <div class="panel malla-card reveal">
+        <div class="doc" aria-hidden>
+          <svg viewBox="0 0 24 24" width="44" height="44" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h7l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/></svg>
+        </div>
+        <div style="flex:1">
+          <h3>Descargar malla curricular</h3>
+          <p class="muted">Accede a la malla curricular oficial (archivo PDF). Archivo preparado para abrir en nueva pestaña.</p>
+          <div style="margin-top:8px"><a class="btn" href="assets/docs/malla-curricular.pdf" target="_blank" rel="noopener">VER MALLA CURRICULAR</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos">
+      <h2 class="section-title">NUESTROS PROYECTOS</h2>
+      <div class="projects">
+        <div class="project panel reveal">
+          <div class="thumb">Imagen del proyecto (próximamente)</div>
+          <div class="meta">
+            <h3>Proyecto de ejemplo</h3>
+            <p class="muted">Descripción del proyecto. Información editable posteriormente.</p>
+            <div style="margin-top:8px"><button class="btn">VER PROYECTO</button></div>
+          </div>
+        </div>
+        <div class="project panel reveal">
+          <div class="thumb">Imagen del proyecto (próximamente)</div>
+          <div class="meta">
+            <h3>Proyecto</h3>
+            <p class="muted">Descripción del proyecto.</p>
+            <div style="margin-top:8px"><button class="btn">VER PROYECTO</button></div>
+          </div>
+        </div>
+        <div class="project panel reveal">
+          <div class="thumb">Proyecto próximamente</div>
+          <div class="meta">
+            <h3>Proyecto</h3>
+            <p class="muted">Descripción del proyecto.</p>
+            <div style="margin-top:8px"><button class="btn">VER PROYECTO</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria">
+      <div class="panel reveal gallery-shell">
+        <div class="gallery-header">
+          <h2 class="section-title">NUESTRA EXPERIENCIA</h2>
+          <p class="gallery-kicker">Tres grados. Un mismo camino.</p>
+        </div>
+
+        <div class="grade-switcher" aria-label="Selector de grados">
+          <button class="gallery-grade is-active" type="button" data-grade="decimo">10.º GRADO</button>
+          <button class="gallery-grade" type="button" data-grade="undecimo">11.º GRADO</button>
+          <button class="gallery-grade" type="button" data-grade="duodecimo">12.º GRADO</button>
+        </div>
+
+        <div class="grade-panel is-visible" data-grade-panel="decimo">
+          <div class="grade-copy">
+            <h3>10.º GRADO</h3>
+            <p>Aquí comienza el camino.</p>
+          </div>
+          <div class="gallery-masonry" data-gallery="decimo" aria-live="polite"></div>
+        </div>
+
+        <div class="grade-panel" data-grade-panel="undecimo">
+          <div class="grade-copy">
+            <h3>11.º GRADO</h3>
+            <p>El conocimiento se convierte en experiencia.</p>
+          </div>
+          <div class="gallery-masonry" data-gallery="undecimo" aria-live="polite"></div>
+        </div>
+
+        <div class="grade-panel" data-grade-panel="duodecimo">
+          <div class="grade-copy">
+            <h3>12.º GRADO</h3>
+            <p>Listos para crear el futuro.</p>
+          </div>
+          <div class="gallery-masonry" data-gallery="duodecimo" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section id="videos">
+      <h2 class="section-title">VIVE INFORMÁTICA ORIENTADA A PROGRAMACIÓN</h2>
+      <div class="panel reveal">
+        <div class="videos-grid">
+          <div class="video-card">
+            <h3>Video ejemplo</h3>
+            <video controls preload="metadata" poster="assets/img/decimo/placeholder-decimo-01.jpg" aria-label="Video de ejemplo">
+              <source src="assets/videos/video01.mp4" type="video/mp4">
+              Tu navegador no soporta video HTML5.
+            </video>
+            <p class="muted">Video próximamente. Usa este espacio para agregar videos de clases o proyectos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCENTES -->
+    <section id="docentes">
+      <h2 class="section-title">NUESTROS DOCENTES</h2>
+      <div class="panel reveal">
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div class="card" style="min-width:160px;flex:1 1 180px;text-align:center"><div style="height:90px;background:linear-gradient(135deg,var(--panel),var(--card));border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)">Fotografía próximamente</div><strong class="muted">Nombre del docente</strong><div class="muted">Área / Asignatura</div></div>
+          <div class="card" style="min-width:160px;flex:1 1 180px;text-align:center"><div style="height:90px;background:linear-gradient(135deg,var(--panel),var(--card));border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)">Fotografía próximamente</div><strong class="muted">Nombre del docente</strong><div class="muted">Área / Asignatura</div></div>
+          <div class="card" style="min-width:160px;flex:1 1 180px;text-align:center"><div style="height:90px;background:linear-gradient(135deg,var(--panel),var(--card));border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)">Fotografía próximamente</div><strong class="muted">Nombre del docente</strong><div class="muted">Área / Asignatura</div></div>
+          <div class="card" style="min-width:160px;flex:1 1 180px;text-align:center"><div style="height:90px;background:linear-gradient(135deg,var(--panel),var(--card));border-radius:8px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)">Fotografía próximamente</div><strong class="muted">Nombre del docente</strong><div class="muted">Área / Asignatura</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15 de septiembre -->
+    <section id="septiembre">
+      <h2 class="section-title">15 DE SEPTIEMBRE · 2026</h2>
+      <div class="panel reveal" style="display:flex;gap:12px;align-items:center;flex-direction:column">
+        <div style="max-width:760px;text-align:center">
+          <p class="muted">Celebremos la educación, la tecnología y el orgullo institucional. Esta sección es el cierre de la experiencia para el desfile del 15 de septiembre.</p>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <div style="width:64px;height:40px;background:var(--panel);border-radius:8px"></div>
+          <div style="width:64px;height:40px;background:linear-gradient(90deg,var(--panel),var(--card));border-radius:8px"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="lb-btn" id="lbClose" aria-label="Cerrar">Cerrar</button>
+    <img src="" alt="" id="lbImage">
+    <div class="lb-controls">
+      <button class="lb-btn" id="lbPrev">Anterior</button>
+      <button class="lb-btn" id="lbNext">Siguiente</button>
+    </div>
+  </div>
+
+  <footer>
+    <div>INSTITUTO POLIVALENTE · DR. DOROTEO VARELA MEJÍA</div>
+    <div>ÁREA DE INFORMÁTICA ORIENTADA A PROGRAMACIÓN · 2026</div>
+    <div style="margin-top:6px;color:var(--muted);font-size:12px">Developed by Angel Hernández</div>
+  </footer>
+
+  <script>
+    // Mobile-first nav toggle
+    const ham = document.querySelector('.hamburger');
+    const navLinks = document.getElementById('nav-links');
+    if(ham){
+      ham.addEventListener('click', ()=>{
+        const open = navLinks.style.display === '' || navLinks.style.display === 'none' ? 'flex' : 'none';
+        navLinks.style.display = open;
+        ham.setAttribute('aria-expanded', open === 'flex');
+      });
+    }
+
+    // Smooth scroll for nav + active state
+    const sections = document.querySelectorAll('main section[id], main[id]');
+    function setActiveNav(link){
+      document.querySelectorAll('.nav-links a').forEach(item => item.classList.toggle('active', item === link));
+    }
+    const initNavActive = document.querySelector('.nav-links a[href="#inicio"]');
+    if(initNavActive) setActiveNav(initNavActive);
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){
+          setActiveNav(a);
+          el.scrollIntoView({behavior:'smooth',block:'start'});
+          if(window.innerWidth < 700 && navLinks){navLinks.style.display='none';ham.setAttribute('aria-expanded', false)}
+        }
+      });
+    });
+
+    const navObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        const id = entry.target.getAttribute('id');
+        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if(link) setActiveNav(link);
+      });
+    }, { threshold: 0.35 });
+    sections.forEach(section => navObserver.observe(section));
+
+    // Hero button scroll
+    document.getElementById('explorar').addEventListener('click', ()=>{
+      document.getElementById('conoce').scrollIntoView({behavior:'smooth'});
+    });
+
+    // IntersectionObserver reveal
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}
+      })
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Galería editorial del área de Informática
+    const galleryCatalog = {
+      decimo: [
+        { src: '', alt: '10.º grado · fotografía 01', label: 'Experiencia', size: 'tall' },
+        { src: '', alt: '10.º grado · fotografía 02', label: 'Clase', size: 'wide' },
+        { src: '', alt: '10.º grado · fotografía 03', label: 'Proyecto', size: 'small' },
+        { src: '', alt: '10.º grado · fotografía 04', label: 'Aprendizaje', size: 'tall' },
+        { src: '', alt: '10.º grado · fotografía 05', label: 'Equipo', size: 'small' },
+        { src: '', alt: '10.º grado · fotografía 06', label: 'Creación', size: 'wide' }
+      ],
+      undecimo: [
+        { src: '', alt: '11.º grado · fotografía 01', label: 'Laboratorio', size: 'wide' },
+        { src: '', alt: '11.º grado · fotografía 02', label: 'Ideas', size: 'tall' },
+        { src: '', alt: '11.º grado · fotografía 03', label: 'Trabajo', size: 'small' },
+        { src: '', alt: '11.º grado · fotografía 04', label: 'Tecnología', size: 'wide' },
+        { src: '', alt: '11.º grado · fotografía 05', label: 'Desafío', size: 'small' },
+        { src: '', alt: '11.º grado · fotografía 06', label: 'Progreso', size: 'tall' }
+      ],
+      duodecimo: [
+        { src: '', alt: '12.º grado · fotografía 01', label: 'Futuro', size: 'tall' },
+        { src: '', alt: '12.º grado · fotografía 02', label: 'Proyecto', size: 'small' },
+        { src: '', alt: '12.º grado · fotografía 03', label: 'Equipo', size: 'wide' },
+        { src: '', alt: '12.º grado · fotografía 04', label: 'Solución', size: 'small' },
+        { src: '', alt: '12.º grado · fotografía 05', label: 'Innovación', size: 'wide' },
+        { src: '', alt: '12.º grado · fotografía 06', label: 'Logro', size: 'tall' }
+      ]
+    };
+
+    function buildPlaceholderSVG(label){
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#111b2d"/>
+              <stop offset="100%" stop-color="#0d1422"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="1000" fill="url(#g)"/>
+          <rect x="70" y="70" width="660" height="860" rx="28" fill="rgba(255,255,255,0.02)" stroke="rgba(59,130,246,0.22)"/>
+          <circle cx="400" cy="410" r="120" fill="rgba(59,130,246,0.12)"/>
+          <path d="M318 392l54 54 112-122 56 56-168 182-122-126 68-44z" fill="rgba(59,130,246,0.28)"/>
+          <text x="400" y="610" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="700" fill="#dfe9ff">FOTO</text>
+          <text x="400" y="668" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#9aa8bc">${label || 'Próximamente'}</text>
+        </svg>
+      `);
+    }
+
+    function createGalleryItem(item, grade, index){
+      const figure = document.createElement('figure');
+      figure.className = `gallery-item ${item.size || 'small'}`;
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'gallery-figure';
+      button.setAttribute('aria-label', item.alt || 'Ver fotografía');
+      button.dataset.grade = grade;
+      button.dataset.index = index;
+
+      const img = document.createElement('img');
+      const placeholderSrc = buildPlaceholderSVG(item.label || 'Próximamente');
+      img.src = item.src || placeholderSrc;
+      img.alt = item.alt || 'Fotografía de la experiencia';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.dataset.safeSrc = img.src;
+      img.onerror = () => {
+        img.onerror = null;
+        img.src = placeholderSrc;
+        img.dataset.safeSrc = img.src;
+      };
+      img.onload = () => {
+        img.dataset.safeSrc = img.currentSrc || img.src;
+      };
+
+      const info = document.createElement('div');
+      info.className = 'gallery-info';
+      info.innerHTML = `<span>${item.label || 'Experiencia'}</span><span class="gallery-magnify" aria-hidden="true">+</span>`;
+
+      button.appendChild(img);
+      button.appendChild(info);
+      figure.appendChild(button);
+      return figure;
+    }
+
+    function renderGallery(grade){
+      const stage = document.querySelector(`[data-gallery="${grade}"]`);
+      if(!stage) return;
+      stage.innerHTML = '';
+      const items = galleryCatalog[grade] || [];
+      items.forEach((item, index) => stage.appendChild(createGalleryItem(item, grade, index)));
+    }
+
+    function updateGradeView(grade){
+      document.querySelectorAll('.gallery-grade').forEach(button => {
+        button.classList.toggle('is-active', button.dataset.grade === grade);
+      });
+      document.querySelectorAll('.grade-panel').forEach(panel => {
+        const visible = panel.dataset.gradePanel === grade;
+        panel.classList.toggle('is-visible', visible);
+        panel.style.display = visible ? 'block' : 'none';
+      });
+    }
+
+    document.querySelectorAll('.gallery-grade').forEach(button => {
+      button.addEventListener('click', () => {
+        updateGradeView(button.dataset.grade);
+      });
+    });
+
+    Object.keys(galleryCatalog).forEach(renderGallery);
+    updateGradeView('decimo');
+
+    const lightbox = document.getElementById('lightbox');
+    const lbImage = document.getElementById('lbImage');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    let lightboxState = { grade: 'decimo', index: 0, items: [] };
+
+    function openLightbox(grade, index){
+      const gradePanel = document.querySelector(`.grade-panel[data-grade-panel="${grade}"]`);
+      if(!gradePanel) return;
+      const galleryImages = Array.from(gradePanel.querySelectorAll('.gallery-figure img'));
+      if(!galleryImages.length || index < 0 || index >= galleryImages.length) return;
+      lightboxState = { grade, index, items: galleryImages };
+      const img = galleryImages[index];
+      lbImage.src = img.dataset.safeSrc || img.src;
+      lbImage.alt = img.alt || 'Fotografía de la experiencia';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', (event) => {
+      const btn = event.target.closest('.gallery-figure');
+      if(!btn) return;
+      const grade = btn.dataset.grade;
+      const index = Number(btn.dataset.index || 0);
+      openLightbox(grade, index);
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', () => {
+      if(!lightboxState.items.length) return;
+      const nextIndex = (lightboxState.index - 1 + lightboxState.items.length) % lightboxState.items.length;
+      openLightbox(lightboxState.grade, nextIndex);
+    });
+    lbNext.addEventListener('click', () => {
+      if(!lightboxState.items.length) return;
+      const nextIndex = (lightboxState.index + 1) % lightboxState.items.length;
+      openLightbox(lightboxState.grade, nextIndex);
+    });
+    lightbox.addEventListener('click', (event) => {
+      if(event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+      if(!lightbox.classList.contains('open')) return;
+      if(event.key === 'Escape') closeLightbox();
+      if(event.key === 'ArrowLeft') lbPrev.click();
+      if(event.key === 'ArrowRight') lbNext.click();
+    });
+
+    // Ensure images are lazy and have dimensions where possible
+    document.querySelectorAll('img').forEach(img=>{
+      if(!img.getAttribute('loading')) img.setAttribute('loading','lazy');
+    });
+
+    // small enhancement: pre-reveal hero after short delay
+    window.addEventListener('load', ()=>{
+      setTimeout(()=>document.getElementById('heroInner').classList.add('visible'),220);
+    });
+
+    // Accessibility: focus trap minimal for lightbox
+    lightbox.addEventListener('click',(e)=>{ if(e.target === lightbox) closeLightbox() });
+
+    // Theme toggle (dark / light) with persistence
+    (function(){
+      const themeKey = 'ipdvm-theme';
+      const toggle = document.getElementById('themeToggle');
+      const icon = document.getElementById('themeIcon');
+
+      function setIcon(theme){
+        if(!icon) return;
+        if(theme === 'light'){
+          // Sun icon
+          icon.innerHTML = '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>';
+          icon.setAttribute('stroke', '#FACC15');
+          icon.setAttribute('fill', '#FACC15');
+        } else {
+          // Moon icon
+          icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />';
+          icon.setAttribute('stroke', 'currentColor');
+          icon.setAttribute('fill', 'none');
+        }
+      }
+
+      function applyTheme(t){
+        const theme = t === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        if(toggle){
+          toggle.setAttribute('aria-pressed', theme === 'light');
+          toggle.setAttribute('data-theme', theme);
+        }
+        setIcon(theme);
+      }
+
+      // init: preferencia por defecto -> modo claro
+      let theme = localStorage.getItem(themeKey) || 'light';
+      applyTheme(theme);
+
+      if(toggle){
+        toggle.addEventListener('click', ()=>{
+          theme = (document.documentElement.getAttribute('data-theme') === 'light') ? 'dark' : 'light';
+          localStorage.setItem(themeKey, theme);
+          toggle.classList.remove('is-animating');
+          void toggle.offsetWidth;
+          toggle.classList.add('is-animating');
+          setTimeout(()=>toggle.classList.remove('is-animating'), 550);
+          applyTheme(theme);
+        });
+      }
+    })();
+
+    // hover color adjustments handled in CSS
+
+    // validate relative paths quickly (console hint)
+    console.log('INFORMÁTICA IPDVM · Página cargada. Revisa assets en /assets/');
+
+  </script>
+
+</body>
+</html>
