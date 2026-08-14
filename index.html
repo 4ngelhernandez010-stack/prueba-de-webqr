@@ -81,26 +81,56 @@
     .btn, .theme-toggle, .hamburger, .lb-btn, .nav-links a, .menu-close{min-width:44px;min-height:44px;touch-action:manipulation}
     .btn, .theme-toggle, .hamburger, .lb-btn{will-change: transform;}
 
-    .brand{display:flex;align-items:center;gap:8px;min-width:0;flex:1}
-    .brand img{height:40px;width:40px;object-fit:contain;border-radius:10px;background:linear-gradient(135deg,var(--panel) 0%, var(--card) 100%);padding:5px;flex-shrink:0}
-    .brand .titles{line-height:1.05;min-width:0}
-    .brand .titles .institute{font-weight:600;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .brand .titles .career{font-weight:800;font-size:11px;letter-spacing:0.45px;line-height:1.15;white-space:normal}
+    .brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1;max-width:100%}
+    .brand img{height:42px;width:42px;object-fit:contain;border-radius:10px;background:linear-gradient(135deg,var(--panel) 0%, var(--card) 100%);padding:5px;flex-shrink:0;box-shadow:0 6px 16px rgba(2,6,23,0.12)}
+    .brand .titles{line-height:1.05;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px;flex:1}
+    .brand .titles .institute{font-weight:700;font-size:11px;color:var(--muted);white-space:normal;overflow-wrap:anywhere;word-break:break-word;letter-spacing:0.12em;text-transform:uppercase;line-height:1.25}
+    .brand .titles .career{font-weight:800;font-size:11px;letter-spacing:0.10px;line-height:1.28;white-space:normal;color:var(--text);overflow-wrap:anywhere;word-break:break-word;text-wrap:pretty}
 
-    nav{margin-left:auto;display:flex;align-items:center;gap:6px;flex:1;justify-content:flex-end}
+    nav{margin-left:auto;display:flex;align-items:center;gap:6px;flex:1;justify-content:flex-end;min-width:0}
     .nav-links{display:flex;gap:8px;align-items:center;flex-wrap:nowrap;justify-content:flex-start;white-space:nowrap;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:2px 2px 4px;max-width:100%}
     .nav-links::-webkit-scrollbar{display:none}
     .nav-links a{
       position:relative;display:inline-flex;align-items:center;justify-content:center;padding:11px 14px;border-radius:10px;font-weight:600;color:var(--text);
       background:linear-gradient(180deg, var(--glass), var(--glass-2));
       border:1px solid var(--glass-border);box-shadow:var(--shadow-soft);flex:0 0 auto;
-      transition:transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease, border-color 0.5s ease, background-color 0.5s ease;
+      transition:transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease, border-color 0.5s ease, background-color 0.5s ease, color 0.25s ease;
       min-height:48px;
     }
+
+    /* Inicio: estilo neutral por defecto; activa el azul sólo en hover o cuando está activo */
+    .nav-links a.home-btn{
+      background:linear-gradient(180deg, var(--glass), var(--glass-2));
+      color:var(--text);
+      border:1px solid var(--glass-border);
+      box-shadow:var(--shadow-soft);
+      font-weight:700;
+      transition:transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease, color 0.18s ease, background 0.3s ease;
+    }
+    .nav-links a.home-btn:hover, .nav-links a.home-btn:focus{
+      transform:translateY(-3px);
+      box-shadow:0 12px 28px rgba(15,23,42,0.12);
+      /* hover rule is handled by the generic .nav-links a:hover which sets blue background and white text */
+    }
+    .nav-links a.home-btn:active{transform:translateY(1px) scale(0.98)}
+    .nav-links a.home-btn:focus-visible{outline:3px solid rgba(59,130,246,0.12);outline-offset:4px;border-radius:10px}
     .menu-close{display:none}
-    .nav-links a:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(15,23,42,0.12);border-color:var(--card-border-hover);background:linear-gradient(90deg,var(--accent), var(--accent-2));color:#021014;transition:background 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease}
-    .nav-links a.active{border-color:var(--accent-border);background:linear-gradient(180deg, rgba(59,130,246,0.08), rgba(59,130,246,0.04));box-shadow:0 10px 22px rgba(59,130,246,0.16);color:var(--text)}
+    .nav-links a:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(15,23,42,0.12);border-color:var(--card-border-hover);background:linear-gradient(90deg,var(--accent), var(--accent-2));color:#ffffff;transition:background 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease}
+    .nav-links a.active{border-color:var(--accent-border);background:linear-gradient(180deg, rgba(59,130,246,0.08), rgba(59,130,246,0.04));box-shadow:0 10px 22px rgba(59,130,246,0.16);color:#ffffff}
     .nav-links a.active::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg, rgba(59,130,246,0.05), transparent);pointer-events:none;}
+
+    /* Ensure any nav link on focus/active remains readable on accent backgrounds */
+    .nav-links a:focus, .nav-links a:active, .nav-links a:focus-visible{
+      color:#ffffff;
+    }
+
+    /* Forzar estilos cuando Inicio está marcado como activo */
+    .nav-links a.home-btn.active{
+      background:linear-gradient(90deg,var(--accent), var(--accent-2));
+      color:#ffffff;
+      border-color:var(--accent-border);
+      box-shadow:0 14px 36px rgba(59,130,246,0.18);
+    }
 
     .hamburger{display:none;background:transparent;border:0;color:var(--muted);font-size:22px;padding:6px;cursor:pointer;align-items:center;justify-content:center;border-radius:10px;width:44px;height:44px}
     .hamburger:hover{transform:translateY(-1px)}
@@ -117,8 +147,8 @@
     .hero p.lead{margin:8px 0 16px;color:var(--muted);font-size:0.92rem;line-height:1.55;max-width:32rem}
 
     .cta{display:flex;flex-direction:column;gap:10px;align-items:stretch;width:100%}
-    .btn{background:linear-gradient(90deg,var(--accent), var(--accent-2));color:#021014;padding:13px 16px;border-radius:12px;font-weight:700;border:0;cursor:pointer;box-shadow:0 8px 30px var(--accent-shadow);font-size:0.92rem;text-align:center;min-height:46px;display:inline-flex;align-items:center;justify-content:center;width:100%}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px var(--accent-shadow);background:linear-gradient(90deg,var(--accent), var(--accent-2));transition:background 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;color:#021014}
+    .btn{background:linear-gradient(90deg,var(--accent), var(--accent-2));color:#ffffff;padding:13px 16px;border-radius:12px;font-weight:700;border:0;cursor:pointer;box-shadow:0 8px 30px var(--accent-shadow);font-size:0.92rem;text-align:center;min-height:46px;display:inline-flex;align-items:center;justify-content:center;width:100%}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px var(--accent-shadow);background:linear-gradient(90deg,var(--accent), var(--accent-2));transition:background 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;color:#ffffff}
     .btn:active{transform:translateY(1px) scale(0.98)}
     .btn.secondary{background:transparent;color:var(--muted);border:1px solid var(--glass-border)}
     .btn.secondary:hover{border-color:var(--accent-border);color:var(--text)}
@@ -291,7 +321,9 @@
       }
       .hero h1{font-size:clamp(1.8rem, 8vw, 2.7rem)}
       .masonry{column-count:2}
-      .brand .titles .career{font-size:10px;letter-spacing:0.2px}
+      .brand .titles .institute{font-size:8.8px;letter-spacing:0.06em;line-height:1.35}
+      .brand .titles .career{font-size:9.2px;letter-spacing:0.03px;line-height:1.35}
+      .brand img{height:38px;width:38px}
       .theme-toggle{padding:7px}
       .hero-inner{padding:16px 12px 18px}
       .nav-wrap{padding:8px 8px 10px;width:min(100%, 390px)}
@@ -388,7 +420,7 @@
         </button>
         <div id="nav-links" class="nav-links" role="navigation" aria-label="Navegación principal">
           <button class="menu-close" id="menuClose" aria-label="Cerrar menú">×</button>
-          <a href="#inicio">Inicio</a>
+          <a href="#inicio" class="home-btn">Inicio</a>
           <a href="#conoce">La carrera</a>
           <a href="#perfil">Perfil</a>
           <a href="#formacion">Formación</a>
@@ -638,13 +670,9 @@
     <!-- 15 de septiembre -->
     <section id="septiembre">
       <h2 class="section-title">15 DE SEPTIEMBRE · 2026</h2>
-      <div class="panel reveal" style="display:flex;gap:12px;align-items:center;flex-direction:column">
+      <div class="panel reveal" style="display:flex;align-items:center;justify-content:center;flex-direction:column">
         <div style="max-width:760px;text-align:center">
           <p class="muted">Celebremos la educación, la tecnología y el orgullo institucional. Esta sección es el cierre de la experiencia para el desfile del 15 de septiembre.</p>
-        </div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <div style="width:64px;height:40px;background:var(--panel);border-radius:8px"></div>
-          <div style="width:64px;height:40px;background:linear-gradient(90deg,var(--panel),var(--card));border-radius:8px"></div>
         </div>
       </div>
     </section>
@@ -695,7 +723,12 @@
     function setActiveNav(link){
       document.querySelectorAll('.nav-links a').forEach(item => item.classList.toggle('active', item === link));
     }
-    const initNavActive = document.querySelector('.nav-links a[href="#inicio"]');
+    // Initialize active nav link based on the current hash or the first section
+    let initNavActive = null;
+    if(window.location && window.location.hash){
+      initNavActive = document.querySelector('.nav-links a[href="' + window.location.hash + '"]');
+    }
+    // Only set an initial active link if the URL contains a hash matching a nav link.
     if(initNavActive) setActiveNav(initNavActive);
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', (e)=>{
