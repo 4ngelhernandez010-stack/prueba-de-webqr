@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIGA IPDDVM - Iniciar sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-qF/myoCcB6FQVoO4f2ZHnIiG6vM4ayL9QYJjglcYyjkTprISGCT6Lyo5E7xB1N6a" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="login-page">
+  <div class="login-wrapper">
+    <main class="login-card shadow-sm">
+      <div class="login-top">
+        <div class="login-brand"><img src="assets/img/logo.png" alt="Logo del colegio" class="brand-logo"></div>
+        <div class="login-title">
+          <h1>SIGA IPDDVM</h1>
+          <p>Portal académico del Instituto Polivalente Dr. Doroteo Varela Mejía</p>
+        </div>
+      </div>
+      <p class="login-description">Inicia sesión con tu usuario institucional o usa los accesos de demostración para explorar el prototipo.</p>
+
+      <form class="login-form">
+        <div class="form-step form-step-email">
+          <div class="mb-3">
+            <label class="form-label">Correo institucional</label>
+            <input id="login-email" type="email" class="form-control" placeholder="nombre@ipddvm.edu.do" />
+          </div>
+          <button id="login-continue" type="button" class="btn btn-primary w-100 mb-3">Siguiente</button>
+        </div>
+
+        <div class="form-step form-step-password d-none">
+          <div class="login-email-summary">
+            <div>Ingresar con <strong id="email-preview"></strong></div>
+            <button id="change-email" type="button" class="btn btn-link btn-sm">Cambiar</button>
+          </div>
+          <div class="mb-4">
+            <label class="form-label">Contraseña</label>
+            <input id="login-password" type="password" class="form-control" placeholder="********" />
+          </div>
+          <button id="login-submit" type="button" class="btn btn-primary w-100 mb-3 d-none">Iniciar sesión</button>
+        </div>
+      </form>
+
+    <div class="demo-buttons">
+      <a href="alumno/dashboard.html" class="btn btn-outline-primary">Entrar como Alumno</a>
+      <a href="profesor/dashboard.html" class="btn btn-outline-primary">Entrar como Profesor</a>
+      <a href="director/dashboard.html" class="btn btn-outline-primary">Entrar como Director</a>
+    </div>
+  </main>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+
+

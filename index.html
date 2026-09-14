@@ -3,1015 +3,4271 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
   <title>INFORMÁTICA ORIENTADA A PROGRAMACIÓN · IPDVM</title>
-  <meta name="description" content="Bachillerato Técnico Profesional en Informática orientada a programación · Instituto Polivalente Dr. Doroteo Varela Mejía">
+
+  <meta
+    name="description"
+    content="Bachillerato Técnico Profesional en Informática orientada a programación · Instituto Polivalente Dr. Doroteo Varela Mejía"
+  >
+
   <style>
+
     /* ==================================================
        INFORMÁTICA IPDVM 2026
        Developed by Angel Hernández
     =================================================== */
 
-    /*
-       Variables CSS globales:
-       Aquí se almacenan colores, sombras, tamaños, bordes y transiciones.
-       Al utilizar var(--nombre), el resto del CSS puede reutilizar estos valores
-       y el diseño completo puede cambiarse modificando pocas variables.
-    */
     :root{
-      /* Paleta de colores principal del sitio IPDVM. Se centralizan los colores en variables para poder cambiar todo el diseño desde un solo lugar. */
-      --bg:#080B12; /* Fondo principal */
-      --panel:#0D1422; /* Fondo secundario */
-      --card:#111B2D; /* Tarjetas / contenedores */
-      --border:#243550; /* Bordes */
-      --text:#F5F7FA; /* Texto principal */
-      --muted:#9AA8BC; /* Texto secundario */
-      --accent:#3B82F6; /* Acento principal */
-      --accent-2:#22D3EE; /* Acento secundario */
-      --accent-3:#22C55E; /* Acento complementario (usar muy poco) */
-      /* Variables auxiliares con transparencias para sombras, bordes, brillos y fondos sutiles. */
-      --accent-shadow: rgba(59,130,246,0.08);
-      --accent-border: rgba(59,130,246,0.06);
-      --accent-ghost: rgba(59,130,246,0.03);
-      --accent-glow: rgba(59,130,246,0.12);
-      --accent2-06: rgba(34,211,238,0.06);
-      --accent2-02: rgba(34,211,238,0.02);
-      --card-border-hover: rgba(59,130,246,0.12);
-      --card-glow: rgba(59,130,246,0.06);
-      --glass: rgba(17,27,45,0.65);
-      --glass-2: rgba(17,27,45,0.45);
-      --card-shadow: 0 6px 18px rgba(3,6,12,0.6);
+      --bg:#080B12;
+      --panel:#0D1422;
+      --card:#111B2D;
+      --border:#243550;
+      --text:#F5F7FA;
+      --muted:#9AA8BC;
+
+      --accent:#3B82F6;
+      --accent-2:#22D3EE;
+      --accent-3:#22C55E;
+
+      --accent-shadow:rgba(59,130,246,0.08);
+      --accent-border:rgba(59,130,246,0.06);
+      --accent-ghost:rgba(59,130,246,0.03);
+      --accent-glow:rgba(59,130,246,0.12);
+
+      --accent2-06:rgba(34,211,238,0.06);
+      --accent2-02:rgba(34,211,238,0.02);
+
+      --card-border-hover:rgba(59,130,246,0.12);
+      --card-glow:rgba(59,130,246,0.06);
+
+      --glass:rgba(17,27,45,0.65);
+      --glass-2:rgba(17,27,45,0.45);
+
+      --card-shadow:0 6px 18px rgba(3,6,12,0.6);
+
       --radius:14px;
       --max-width:1100px;
       --gap:18px;
-      --glass-border: rgba(36,53,80,0.18);
-      --shadow-soft: 0 4px 15px rgba(15,23,42,0.06);
-      --shadow-hover: 0 15px 35px rgba(15,23,42,0.12);
-      --nav-overlay-1: rgba(17,27,45,0.04);
-      --nav-overlay-2: rgba(17,27,45,0.02);
-      --panel-overlay-1: rgba(17,27,45,0.06);
-      --panel-overlay-2: rgba(17,27,45,0.03);
-      --card-soft-1: rgba(17,27,45,0.06);
-      --card-soft-2: rgba(17,27,45,0.02);
-      --btn-transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, background-color 0.35s ease, color 0.35s ease;
-      --card-transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.55s ease, border-color 0.55s ease;
-      color-scheme: dark;
+
+      --glass-border:rgba(36,53,80,0.18);
+
+      --shadow-soft:0 4px 15px rgba(15,23,42,0.06);
+      --shadow-hover:0 15px 35px rgba(15,23,42,0.12);
+
+      --nav-overlay-1:rgba(17,27,45,0.04);
+      --nav-overlay-2:rgba(17,27,45,0.02);
+
+      --panel-overlay-1:rgba(17,27,45,0.06);
+      --panel-overlay-2:rgba(17,27,45,0.03);
+
+      --card-soft-1:rgba(17,27,45,0.06);
+      --card-soft-2:rgba(17,27,45,0.02);
+
+      --btn-transition:
+        transform 0.35s cubic-bezier(0.22,1,0.36,1),
+        box-shadow 0.35s cubic-bezier(0.22,1,0.36,1),
+        border-color 0.35s ease,
+        background-color 0.35s ease,
+        color 0.35s ease;
+
+      --card-transition:
+        transform 0.55s cubic-bezier(0.22,1,0.36,1),
+        box-shadow 0.55s ease,
+        border-color 0.55s ease;
+
+      color-scheme:dark;
     }
 
-    /* Estilos base: reglas generales que afectan a toda la página. */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    /* El elemento body contiene visualmente toda la página. Se define aquí la tipografía,
-       el fondo general, el color del texto y el comportamiento de las transiciones. */
+
+    /* ==================================================
+       ESTILOS GENERALES
+    =================================================== */
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html,
+    body{
+      height:100%;
+    }
+
+    html,
+    body{
+      overflow-x:hidden;
+    }
+
     body{
       margin:0;
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background:linear-gradient(180deg,var(--bg) 0%, var(--panel) 60%);
+
+      font-family:
+        system-ui,
+        -apple-system,
+        'Segoe UI',
+        Roboto,
+        'Helvetica Neue',
+        Arial,
+        sans-serif;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--bg) 0%,
+          var(--panel) 60%
+        );
+
       color:var(--text);
+
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+
       line-height:1.4;
-      overflow-x:hidden;
-      transition:background .65s cubic-bezier(0.22,1,0.36,1), color .55s cubic-bezier(0.22,1,0.36,1);
-      /* Se utiliza el flujo normal de la página; el centrado principal lo controlan <main> y .nav-wrap. */
+
+      transition:
+        background .65s cubic-bezier(0.22,1,0.36,1),
+        color .55s cubic-bezier(0.22,1,0.36,1);
+
       display:block;
     }
 
-    a{color:var(--accent);text-decoration:none}
-
-    main{width:100%;max-width:var(--max-width);margin:0 auto;padding:12px 12px 26px;position:relative;z-index:1}
-
-    /* BARRA DE NAVEGACIÓN: cabecera fija, menú, botones y comportamiento visual. */
-    header{position:fixed;inset:0 0 auto 0;z-index:60;display:flex;justify-content:center;pointer-events:none}
-    /* Contenedor visual de la navegación. El efecto blur + transparencia crea el aspecto
-       de vidrio, mientras que max-width evita que la barra sea excesivamente ancha. */
-    .nav-wrap{backdrop-filter: blur(8px);background:linear-gradient(180deg, var(--nav-overlay-1), var(--nav-overlay-2));
-      border:1px solid var(--glass-border);margin:10px auto 0;border-radius:14px;width:100%;max-width:var(--max-width);padding:8px 10px;display:flex;align-items:center;gap:8px;box-shadow:0 8px 22px rgba(2,6,23,0.18);pointer-events:auto}
-
-    button, .nav-links a, .hamburger, .theme-toggle, .lb-btn, .btn{transition: var(--btn-transition)}
-    .btn, .theme-toggle, .hamburger, .lb-btn, .nav-links a, .menu-close{min-width:44px;min-height:44px;touch-action:manipulation}
-    .btn, .theme-toggle, .hamburger, .lb-btn{will-change: transform;}
-
-    .brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1;max-width:100%}
-    .brand img{height:42px;width:42px;object-fit:contain;border-radius:10px;background:linear-gradient(135deg,var(--panel) 0%, var(--card) 100%);padding:5px;flex-shrink:0;box-shadow:0 6px 16px rgba(2,6,23,0.12)}
-    .brand .titles{line-height:1.05;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px;flex:1}
-    .brand .titles .institute{font-weight:700;font-size:11px;color:var(--muted);white-space:normal;overflow-wrap:anywhere;word-break:break-word;letter-spacing:0.12em;text-transform:uppercase;line-height:1.25}
-    .brand .titles .career{font-weight:800;font-size:11px;letter-spacing:0.10px;line-height:1.28;white-space:normal;color:var(--text);overflow-wrap:anywhere;word-break:break-word;text-wrap:pretty}
-
-    nav{margin-left:auto;display:flex;align-items:center;gap:6px;flex:1;justify-content:flex-end;min-width:0}
-    .nav-links{display:flex;gap:8px;align-items:center;flex-wrap:nowrap;justify-content:flex-start;white-space:nowrap;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:2px 2px 4px;max-width:100%}
-    .nav-links::-webkit-scrollbar{display:none}
-    .nav-links a{
-      position:relative;display:inline-flex;align-items:center;justify-content:center;padding:11px 14px;border-radius:10px;font-weight:600;color:var(--text);
-      background:linear-gradient(180deg, var(--glass), var(--glass-2));
-      border:1px solid var(--glass-border);box-shadow:var(--shadow-soft);flex:0 0 auto;
-      transition:transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease, border-color 0.5s ease, background-color 0.5s ease, color 0.25s ease;
-      min-height:48px;
+    a{
+      color:var(--accent);
+      text-decoration:none;
     }
 
-    /* El botón Inicio comienza con un estilo neutro y adquiere el color de énfasis cuando se pasa el cursor o queda activo. */
-    .nav-links a.home-btn{
-      background:linear-gradient(180deg, var(--glass), var(--glass-2));
-      color:var(--text);
+    img,
+    video,
+    svg{
+      max-width:100%;
+      height:auto;
+      display:block;
+    }
+
+    button,
+    input,
+    textarea,
+    select{
+      font:inherit;
+    }
+
+
+    /* ==================================================
+       TÍTULOS
+    =================================================== */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6{
+      text-align:center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p{
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+
+    main{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:12px 12px 26px;
+      position:relative;
+      z-index:1;
+    }
+
+    section{
+      margin:22px 0;
+      padding:8px 0;
+      scroll-margin-top:90px;
+    }
+
+    .section-title{
+      font-size:1.2rem;
+      margin:0 0 12px;
+      letter-spacing:0.04em;
+      text-align:center;
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+
+    /* ==================================================
+       NAVEGACIÓN
+    =================================================== */
+
+    header{
+      position:fixed;
+      inset:0 0 auto 0;
+      z-index:60;
+
+      display:flex;
+      justify-content:center;
+
+      pointer-events:none;
+    }
+
+    .nav-wrap{
+      backdrop-filter:blur(8px);
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--nav-overlay-1),
+          var(--nav-overlay-2)
+        );
+
       border:1px solid var(--glass-border);
-      box-shadow:var(--shadow-soft);
+
+      margin:10px auto 0;
+
+      border-radius:14px;
+
+      width:100%;
+      max-width:var(--max-width);
+
+      padding:8px 10px;
+
+      display:flex;
+      align-items:center;
+      gap:8px;
+
+      box-shadow:
+        0 8px 22px rgba(2,6,23,0.18);
+
+      pointer-events:auto;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+
+      min-width:0;
+      flex:1;
+      max-width:100%;
+    }
+
+    .brand img{
+      height:42px;
+      width:42px;
+
+      object-fit:contain;
+
+      border-radius:10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--panel) 0%,
+          var(--card) 100%
+        );
+
+      padding:5px;
+
+      flex-shrink:0;
+
+      box-shadow:
+        0 6px 16px rgba(2,6,23,0.12);
+    }
+
+    .brand .titles{
+      line-height:1.05;
+
+      min-width:0;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+
+      gap:2px;
+
+      flex:1;
+
+      text-align:center;
+    }
+
+    .brand .titles .institute{
       font-weight:700;
-      transition:transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease, color 0.18s ease, background 0.3s ease;
+      font-size:11px;
+
+      color:var(--muted);
+
+      white-space:normal;
+
+      overflow-wrap:anywhere;
+      word-break:break-word;
+
+      letter-spacing:0.12em;
+
+      text-transform:uppercase;
+
+      line-height:1.25;
+
+      text-align:center;
     }
-    .nav-links a.home-btn:hover, .nav-links a.home-btn:focus{
+
+    .brand .titles .career{
+      font-weight:800;
+      font-size:11px;
+
+      letter-spacing:0.10px;
+
+      line-height:1.28;
+
+      white-space:normal;
+
+      color:var(--text);
+
+      overflow-wrap:anywhere;
+      word-break:break-word;
+
+      text-wrap:pretty;
+
+      text-align:center;
+    }
+
+
+    /* ==================================================
+       BOTONES
+    =================================================== */
+
+    button,
+    .nav-links a,
+    .hamburger,
+    .theme-toggle,
+    .lb-btn,
+    .btn{
+      transition:var(--btn-transition);
+    }
+
+    .btn,
+    .theme-toggle,
+    .hamburger,
+    .lb-btn,
+    .nav-links a,
+    .menu-close{
+      min-width:44px;
+      min-height:44px;
+      touch-action:manipulation;
+    }
+
+    .btn,
+    .theme-toggle,
+    .hamburger,
+    .lb-btn{
+      will-change:transform;
+    }
+
+    .btn{
+      background:
+        linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent-2)
+        );
+
+      color:#ffffff;
+
+      padding:13px 16px;
+
+      border-radius:12px;
+
+      font-weight:700;
+
+      border:0;
+
+      cursor:pointer;
+
+      box-shadow:
+        0 8px 30px var(--accent-shadow);
+
+      font-size:0.92rem;
+
+      text-align:center;
+
+      min-height:46px;
+
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      width:100%;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 12px 28px var(--accent-shadow);
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent-2)
+        );
+
+      color:#ffffff;
+    }
+
+    .btn:active{
+      transform:
+        translateY(1px)
+        scale(0.98);
+    }
+
+    .btn.secondary{
+      background:transparent;
+      color:var(--muted);
+
+      border:1px solid var(--glass-border);
+    }
+
+    .btn.secondary:hover{
+      border-color:var(--accent-border);
+      color:var(--text);
+    }
+
+
+    /* ==================================================
+       MENÚ
+    =================================================== */
+
+    nav{
+      margin-left:auto;
+
+      display:flex;
+      align-items:center;
+
+      gap:6px;
+
+      flex:1;
+
+      justify-content:flex-end;
+
+      min-width:0;
+    }
+
+    .nav-links{
+      display:flex;
+
+      gap:8px;
+
+      align-items:center;
+
+      flex-wrap:nowrap;
+
+      justify-content:flex-start;
+
+      white-space:nowrap;
+
+      overflow-x:auto;
+
+      scrollbar-width:none;
+
+      -ms-overflow-style:none;
+
+      padding:2px 2px 4px;
+
+      max-width:100%;
+    }
+
+    .nav-links::-webkit-scrollbar{
+      display:none;
+    }
+
+    .nav-links a{
+      position:relative;
+
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      padding:11px 14px;
+
+      border-radius:10px;
+
+      font-weight:600;
+
+      color:var(--text);
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--glass),
+          var(--glass-2)
+        );
+
+      border:1px solid var(--glass-border);
+
+      box-shadow:var(--shadow-soft);
+
+      flex:0 0 auto;
+
+      min-height:48px;
+
+      text-align:center;
+    }
+
+    .nav-links a:hover{
       transform:translateY(-3px);
-      box-shadow:0 12px 28px rgba(15,23,42,0.12);
-      /* El efecto visual del cursor se completa con la regla general .nav-links a:hover. */
-    }
-    .nav-links a.home-btn:active{transform:translateY(1px) scale(0.98)}
-    .nav-links a.home-btn:focus-visible{outline:3px solid rgba(59,130,246,0.12);outline-offset:4px;border-radius:10px}
-    .menu-close{display:none}
-    .nav-links a:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(15,23,42,0.12);border-color:rgba(147,197,253,0.55);background:linear-gradient(135deg, rgba(147,197,253,0.38), rgba(191,219,254,0.18));color:#000000;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease, color 0.2s ease}
-    .nav-links a.active{
-      border-color:rgba(191,219,254,0.55);
-      background:linear-gradient(135deg, rgba(147,197,253,0.52), rgba(191,219,254,0.22));
-      box-shadow:0 10px 22px rgba(96,165,250,0.22), inset 0 1px 0 rgba(255,255,255,0.35);
+
+      box-shadow:
+        0 12px 25px rgba(15,23,42,0.12);
+
+      border-color:
+        rgba(147,197,253,0.55);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(147,197,253,0.38),
+          rgba(191,219,254,0.18)
+        );
+
       color:#000000;
+
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+
+    .nav-links a.active{
+      border-color:
+        rgba(191,219,254,0.55);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(147,197,253,0.52),
+          rgba(191,219,254,0.22)
+        );
+
+      box-shadow:
+        0 10px 22px rgba(96,165,250,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.35);
+
+      color:#000000;
+
       backdrop-filter:blur(12px);
       -webkit-backdrop-filter:blur(12px);
     }
-    .nav-links a.active::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04));pointer-events:none;}
 
-    /* Mantiene legible el texto de los enlaces cuando reciben foco o están activos. */
-    .nav-links a:focus, .nav-links a:active, .nav-links a:focus-visible{
-      color:#000000;
+    .nav-links a.active::before{
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      border-radius:inherit;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.18),
+          rgba(255,255,255,0.04)
+        );
+
+      pointer-events:none;
     }
 
-    /* Fuerza el mismo estilo activo para el botón Inicio cuando su sección está seleccionada. */
-    .nav-links a.home-btn.active{
-      background:linear-gradient(135deg, rgba(147,197,253,0.52), rgba(191,219,254,0.22));
-      color:#000000;
-      border-color:rgba(191,219,254,0.55);
-      box-shadow:0 14px 36px rgba(96,165,250,0.22), inset 0 1px 0 rgba(255,255,255,0.35);
+    .hamburger{
+      display:none;
+
+      background:transparent;
+
+      border:0;
+
+      color:var(--muted);
+
+      font-size:22px;
+
+      padding:6px;
+
+      cursor:pointer;
+
+      align-items:center;
+      justify-content:center;
+
+      border-radius:10px;
+
+      width:44px;
+      height:44px;
     }
 
-    .hamburger{display:none;background:transparent;border:0;color:var(--muted);font-size:22px;padding:6px;cursor:pointer;align-items:center;justify-content:center;border-radius:10px;width:44px;height:44px}
-    .hamburger:hover{transform:translateY(-1px)}
-    .hamburger:active{transform:translateY(1px) scale(0.98)}
-
-    /* SECCIÓN HERO: portada principal que presenta la carrera y sus acciones principales. */
-    /* La sección Hero ocupa como mínimo toda la altura visible de la pantalla (100dvh).
-       Su objetivo es funcionar como portada y captar la atención del visitante. */
-    .hero{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:86px 0 18px}
-    .hero-inner{width:100%;max-width:980px;background:linear-gradient(180deg, var(--panel-overlay-1), var(--panel-overlay-2));border-radius:18px;padding:18px 14px;display:grid;gap:12px;grid-template-columns:1fr;box-shadow:var(--card-shadow);border:1px solid var(--glass-border);overflow:hidden;min-height:280px}
-    .hero-grid{display:flex;flex-direction:column;gap:16px;align-items:stretch}
-    .hero-left{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center}
-    .hero-right{flex:1;display:flex;align-items:center;justify-content:center}
-
-    .hero h1{font-size:clamp(1.8rem, 7vw, 2.8rem);margin:0;letter-spacing:0.7px;line-height:1.08}
-    .hero p.lead{margin:8px 0 16px;color:var(--muted);font-size:0.92rem;line-height:1.55;max-width:32rem}
-
-    .cta{display:flex;flex-direction:column;gap:10px;align-items:stretch;width:100%}
-    .btn{background:linear-gradient(90deg,var(--accent), var(--accent-2));color:#ffffff;padding:13px 16px;border-radius:12px;font-weight:700;border:0;cursor:pointer;box-shadow:0 8px 30px var(--accent-shadow);font-size:0.92rem;text-align:center;min-height:46px;display:inline-flex;align-items:center;justify-content:center;width:100%}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px var(--accent-shadow);background:linear-gradient(90deg,var(--accent), var(--accent-2));transition:background 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;color:#ffffff}
-    .btn:active{transform:translateY(1px) scale(0.98)}
-    .btn.secondary{background:transparent;color:var(--muted);border:1px solid var(--glass-border)}
-    .btn.secondary:hover{border-color:var(--accent-border);color:var(--text)}
-
-    /* Fondo tecnológico sutil que decora la portada sin interferir con la interacción. */
-    .tech-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0.6}
-    .tech-canvas{width:100%;height:100%}
-
-    /* SECCIONES: separación y títulos generales del contenido. */
-    section{margin:22px 0;padding:8px 0}
-    h2.section-title{font-size:1.2rem;margin:0 0 12px;letter-spacing:0.04em}
-
-    /* .panel es un contenedor reutilizable para agrupar contenido con el mismo estilo
-       visual: fondo, borde, esquinas redondeadas y sombra. */
-    .panel{background:linear-gradient(180deg, var(--panel-overlay-1), var(--panel-overlay-2));padding:14px;border-radius:14px;border:1px solid var(--glass-border);box-shadow:var(--card-shadow)}
-
-    /* TARJETAS DEL PERFIL: características y habilidades que desarrolla el estudiante. */
-    .grid{display:grid;gap:12px}
-    .grid.cards-3{grid-template-columns:1fr}
-    .card{background:linear-gradient(180deg,var(--glass),var(--glass-2));padding:14px;border-radius:12px;border:1px solid var(--glass-border);transition:transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;cursor:pointer;box-shadow:var(--shadow-soft);min-height:120px}
-    @media (hover: hover) {
-      .card:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-hover);border-color:var(--card-border-hover)}
+    .menu-close{
+      display:none;
     }
-    .card:focus{transform:translateY(-4px);box-shadow:var(--shadow-soft);outline:0}
-    .card .icon{height:48px;width:48px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(180deg, var(--card-soft-1), var(--card-soft-2));margin-bottom:8px}
-    .card h3{margin:6px 0 8px;font-size:16px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
 
-    /* FORMACIÓN: áreas principales de aprendizaje de la carrera. */
-    .areas{display:flex;flex-direction:column;gap:12px}
-    .area{display:flex;gap:12px;align-items:center}
-    .area .dot{height:12px;width:12px;border-radius:50%;background:var(--accent);box-shadow:0 2px 12px var(--accent-glow)}
 
-    /* MALLA CURRICULAR: tarjeta que presenta el acceso al documento PDF. */
-    .malla-card{display:flex;flex-direction:column;gap:16px;align-items:flex-start;padding:18px}
-    .malla-card .doc{height:84px;width:84px;border-radius:10px;background:linear-gradient(135deg,var(--panel),var(--card));display:flex;align-items:center;justify-content:center}
-    .malla-card .doc svg{width:44px;height:44px;fill:var(--accent)}
+    /* ==================================================
+       HERO
+    =================================================== */
 
-    /* PROYECTOS: tarjetas reservadas para mostrar trabajos realizados por los estudiantes. */
-    .projects{display:grid;grid-template-columns:1fr;gap:12px}
-    .project{display:flex;flex-direction:column;border-radius:12px;overflow:hidden}
-    .project .thumb{height:160px;background:linear-gradient(135deg,var(--panel),var(--card));display:flex;align-items:center;justify-content:center;color:var(--muted)}
-    .project .meta{padding:10px}
+    .hero{
+      min-height:100dvh;
 
-    /* GALERÍA MASONRY: distribución de imágenes en columnas para aprovechar diferentes alturas. */
-    .masonry{column-count:2;column-gap:12px}
-    .masonry figure{break-inside:avoid;margin:0 0 12px;border-radius:12px;overflow:hidden;position:relative}
-    .masonry img{width:100%;height:auto;display:block;border-radius:12px;transition:transform .3s ease,filter .3s ease}
-    .masonry figure .caption{position:absolute;left:8px;bottom:8px;color:var(--text);background:linear-gradient(90deg,rgba(0,0,0,0.6), rgba(0,0,0,0.2));padding:6px 8px;border-radius:8px;font-size:13px}
-    .masonry img:hover{transform:scale(1.03)}
+      display:flex;
 
-    /* GALERÍA EDITORIAL: selector de grado y presentación organizada de fotografías. */
-    .gallery-shell{padding:8px 0 0}
-    .gallery-header{margin-bottom:16px}
-    .gallery-kicker{margin:8px 0 0;color:var(--muted);font-size:15px;letter-spacing:0.02em}
-    .grade-switcher{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:8px;margin-bottom:18px}
-    .gallery-grade{appearance:none;border:1px solid var(--glass-border);background:linear-gradient(180deg, var(--glass), var(--glass-2));color:var(--muted);border-radius:12px;padding:10px 8px;font-weight:700;letter-spacing:0.03em;cursor:pointer;box-shadow:var(--shadow-soft);transition:transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease, border-color 0.45s ease, background 0.6s cubic-bezier(0.22,1,0.36,1), color 0.45s ease;text-align:center;font-size:12px;min-height:44px}
-    .gallery-grade:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(15,23,42,0.12);border-color:var(--card-border-hover);background:linear-gradient(90deg,var(--accent), var(--accent-2));color:#021014}
-    .gallery-grade.is-active{border-color:var(--accent-border);background:linear-gradient(90deg,var(--accent), var(--accent-2));box-shadow:0 10px 22px rgba(59,130,246,0.16);color:#021014}
-    .grade-panel{display:none;animation:gradeFade 0.7s cubic-bezier(0.22, 1, 0.36, 1)}
-    .gallery-masonry{column-count:1;column-gap:12px}
-    @media (max-width: 900px){.gallery-masonry{column-count:2}}
-    @media (max-width: 560px){.gallery-masonry{column-count:1}.grade-switcher{grid-template-columns:repeat(3, minmax(0, 1fr));gap:8px}.gallery-grade{padding:10px 8px;text-align:center;font-size:12px}}
-    .grade-panel.is-visible{display:block}
-    .grade-copy{display:flex;flex-direction:column;gap:6px;padding:0 0 14px}
-    .grade-copy h3{margin:0;font-size:clamp(1.4rem, 2vw, 2rem);letter-spacing:0.04em}
-    .grade-copy p{margin:0;color:var(--muted);font-size:15px}
-    .gallery-masonry{column-count:3;column-gap:14px}
-    .gallery-item{break-inside:avoid;margin:0 0 14px}
-    .gallery-figure{position:relative;display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer;overflow:hidden;border-radius:18px;box-shadow:var(--shadow-soft);transition:transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease}
-    .gallery-figure:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover)}
-    .gallery-figure img{display:block;width:100%;height:clamp(170px, 22vw, 330px);object-fit:cover;border-radius:18px;transition:transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)}
-    .gallery-figure:hover img{transform:scale(1.03)}
-    .gallery-item.tall .gallery-figure img{height:clamp(240px, 32vw, 450px)}
-    .gallery-item.wide .gallery-figure img{height:clamp(150px, 18vw, 230px)}
-    .gallery-item.small .gallery-figure img{height:clamp(140px, 16vw, 220px)}
-    .gallery-info{position:absolute;inset:auto 0 0 0;display:flex;align-items:center;justify-content:space-between;padding:12px 12px 10px;background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.72));opacity:0;transition:opacity 0.45s ease}
-    .gallery-figure:hover .gallery-info{opacity:1}
-    .gallery-info span{font-size:12px;color:rgba(255,255,255,0.9);font-weight:600}
-    .gallery-magnify{width:30px;height:30px;border-radius:999px;border:1px solid rgba(255,255,255,0.22);display:grid;place-items:center;background:rgba(10,16,24,0.32);font-weight:700;color:#fff;font-size:18px;line-height:1}
-    @keyframes gradeFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+      align-items:center;
+      justify-content:center;
 
-    /* LIGHTBOX: visor de imágenes ampliadas que aparece sobre toda la página. */
-    /* El lightbox se coloca sobre toda la interfaz mediante position: fixed y un z-index alto.
-       Inicialmente está oculto; la clase .open lo hace visible con una transición. */
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.82);display:flex;align-items:center;justify-content:center;z-index:120;padding:18px;opacity:0;visibility:hidden;transition:opacity 0.4s ease, visibility 0.4s ease}
-    .lightbox.open{opacity:1;visibility:visible}
-    .lightbox img{max-width:96%;max-height:86%;border-radius:12px;box-shadow:0 18px 60px rgba(0,0,0,0.5)}
-    .lb-controls{position:fixed;left:12px;right:12px;bottom:28px;display:flex;justify-content:space-between;gap:12px}
-    .lb-btn{background:rgba(17,27,45,0.06);border:1px solid var(--glass-border);color:var(--muted);padding:10px 12px;border-radius:10px}
+      padding:86px 0 18px;
+    }
 
-    /* BOTÓN DE TEMA: controla el cambio entre modo oscuro y modo claro. */
-    .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:8px;border-radius:10px;border:1px solid var(--glass-border);background:rgba(255,255,255,0.02);color:var(--muted);cursor:pointer;transform-origin:center;box-shadow:var(--shadow-soft);position:relative;overflow:hidden}
-    .theme-toggle:hover{transform:translateY(-1px)}
-    .theme-toggle:active{transform:translateY(1px) scale(0.98)}
-    .theme-toggle.is-animating{transform:translateY(-3px) rotate(8deg);}
-    .theme-toggle.is-animating::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg, rgba(255,255,255,0.08), transparent);}
-    .theme-toggle svg{width:18px;height:18px;display:block;transition:transform .45s cubic-bezier(0.22,1,0.36,1), stroke .3s ease, fill .3s ease;}
-    .theme-toggle[data-theme="light"]{color:#FACC15;box-shadow:0 8px 20px rgba(250,204,21,0.18);border-color:rgba(250,204,21,0.28)}
-    .theme-toggle[data-theme="light"] svg{transform:rotate(8deg);fill:#FACC15;stroke:#FACC15;}
+    .hero-inner{
+      width:100%;
 
-    /* COLORES DEL MODO CLARO: reemplaza las variables anteriores cuando data-theme="light". */
-    :root[data-theme="light"], [data-theme="light"]{
+      max-width:980px;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--panel-overlay-1),
+          var(--panel-overlay-2)
+        );
+
+      border-radius:18px;
+
+      padding:18px 14px;
+
+      display:grid;
+
+      gap:12px;
+
+      grid-template-columns:1fr;
+
+      box-shadow:var(--card-shadow);
+
+      border:1px solid var(--glass-border);
+
+      overflow:hidden;
+
+      min-height:280px;
+    }
+
+    .hero-grid{
+      display:flex;
+
+      flex-direction:column;
+
+      gap:16px;
+
+      align-items:stretch;
+    }
+
+    .hero-left{
+      flex:1;
+
+      display:flex;
+
+      flex-direction:column;
+
+      align-items:center;
+
+      text-align:center;
+    }
+
+    .hero-right{
+      flex:1;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+    }
+
+    .hero h1{
+      font-size:
+        clamp(
+          1.8rem,
+          7vw,
+          2.8rem
+        );
+
+      margin:0;
+
+      letter-spacing:0.7px;
+
+      line-height:1.08;
+
+      text-align:center;
+    }
+
+    .hero p.lead{
+      margin:8px 0 16px;
+
+      color:var(--muted);
+
+      font-size:0.92rem;
+
+      line-height:1.55;
+
+      max-width:32rem;
+
+      text-align:center;
+    }
+
+    .cta{
+      display:flex;
+
+      flex-direction:column;
+
+      gap:10px;
+
+      align-items:stretch;
+
+      width:100%;
+    }
+
+    .tech-bg{
+      position:absolute;
+
+      inset:0;
+
+      z-index:-1;
+
+      pointer-events:none;
+
+      opacity:0.6;
+    }
+
+    .tech-canvas{
+      width:100%;
+      height:100%;
+    }
+
+
+    /* ==================================================
+       PANELES
+    =================================================== */
+
+    .panel{
+      background:
+        linear-gradient(
+          180deg,
+          var(--panel-overlay-1),
+          var(--panel-overlay-2)
+        );
+
+      padding:14px;
+
+      border-radius:14px;
+
+      border:1px solid var(--glass-border);
+
+      box-shadow:var(--card-shadow);
+    }
+
+
+    /* ==================================================
+       TARJETAS
+    =================================================== */
+
+    .grid{
+      display:grid;
+      gap:12px;
+    }
+
+    .grid.cards-3{
+      grid-template-columns:1fr;
+    }
+
+    .card{
+      background:
+        linear-gradient(
+          180deg,
+          var(--glass),
+          var(--glass-2)
+        );
+
+      padding:14px;
+
+      border-radius:12px;
+
+      border:1px solid var(--glass-border);
+
+      transition:
+        transform 0.35s cubic-bezier(0.22,1,0.36,1),
+        box-shadow 0.35s ease;
+
+      cursor:pointer;
+
+      box-shadow:var(--shadow-soft);
+
+      min-height:120px;
+
+      text-align:center;
+    }
+
+    .card:hover{
+      transform:
+        translateY(-8px)
+        scale(1.02);
+
+      box-shadow:var(--shadow-hover);
+
+      border-color:var(--card-border-hover);
+    }
+
+    .card:focus{
+      transform:translateY(-4px);
+
+      box-shadow:var(--shadow-soft);
+
+      outline:0;
+    }
+
+    .card .icon{
+      height:48px;
+      width:48px;
+
+      border-radius:10px;
+
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--card-soft-1),
+          var(--card-soft-2)
+        );
+
+      margin-bottom:8px;
+    }
+
+    .card .icon svg{
+      width:26px;
+      height:26px;
+    }
+
+    .card h3{
+      margin:6px 0 8px;
+
+      font-size:16px;
+
+      text-align:center;
+    }
+
+    .card p{
+      margin:0;
+
+      color:var(--muted);
+
+      font-size:14px;
+
+      text-align:center;
+    }
+
+
+    /* ==================================================
+       FORMACIÓN
+    =================================================== */
+
+    .areas{
+      display:flex;
+
+      flex-direction:column;
+
+      gap:12px;
+    }
+
+    .area{
+      display:flex;
+
+      gap:12px;
+
+      align-items:center;
+    }
+
+    .area .dot{
+      height:12px;
+      width:12px;
+
+      flex-shrink:0;
+
+      border-radius:50%;
+
+      background:var(--accent);
+
+      box-shadow:
+        0 2px 12px var(--accent-glow);
+    }
+
+    .area strong{
+      display:block;
+
+      text-align:left;
+    }
+
+
+    /* ==================================================
+       MALLA CURRICULAR
+    =================================================== */
+
+    .malla-card{
+      display:flex;
+
+      flex-direction:column;
+
+      gap:16px;
+
+      align-items:center;
+
+      padding:18px;
+    }
+
+    .malla-card .doc{
+      height:84px;
+      width:84px;
+
+      border-radius:10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--panel),
+          var(--card)
+        );
+
+      display:flex;
+
+      align-items:center;
+      justify-content:center;
+    }
+
+    .malla-card .doc svg{
+      width:44px;
+      height:44px;
+
+      fill:var(--accent);
+    }
+
+    .malla-card > div:last-child{
+      text-align:center;
+    }
+
+    .malla-card h3{
+      margin-top:0;
+    }
+
+
+    /* ==================================================
+       PROYECTOS
+    =================================================== */
+
+    .projects{
+      display:grid;
+
+      grid-template-columns:1fr;
+
+      gap:12px;
+    }
+
+    .project{
+      display:flex;
+
+      flex-direction:column;
+
+      border-radius:12px;
+
+      overflow:hidden;
+
+      padding:0;
+    }
+
+    .project .thumb{
+      height:160px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--panel),
+          var(--card)
+        );
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      color:var(--muted);
+
+      text-align:center;
+
+      padding:15px;
+
+      font-weight:600;
+    }
+
+    .project .meta{
+      padding:16px;
+
+      text-align:center;
+    }
+
+    .project .meta h3{
+      margin:4px 0 8px;
+
+      font-size:18px;
+
+      text-align:center;
+    }
+
+    .project .meta p{
+      margin:0;
+
+      text-align:center;
+    }
+
+    .project-action{
+      margin-top:12px;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+    }
+
+    .project-action .btn{
+      width:auto;
+
+      min-width:170px;
+    }
+
+
+    /* ==================================================
+       GALERÍA
+    =================================================== */
+
+    .gallery-shell{
+      padding:8px 0 0;
+    }
+
+    .gallery-header{
+      margin-bottom:18px;
+
+      text-align:center;
+    }
+
+    .gallery-header .section-title{
+      margin-bottom:8px;
+    }
+
+    .gallery-kicker{
+      margin:8px 0 0;
+
+      color:var(--muted);
+
+      font-size:15px;
+
+      letter-spacing:0.02em;
+
+      text-align:center;
+    }
+
+    .gallery-masonry{
+      column-count:3;
+
+      column-gap:14px;
+    }
+
+    .gallery-item{
+      break-inside:avoid;
+
+      margin:0 0 14px;
+    }
+
+    .gallery-figure{
+      position:relative;
+
+      display:block;
+
+      width:100%;
+
+      padding:0;
+
+      border:0;
+
+      background:transparent;
+
+      cursor:pointer;
+
+      overflow:hidden;
+
+      border-radius:18px;
+
+      box-shadow:var(--shadow-soft);
+
+      transition:
+        transform 0.35s cubic-bezier(0.22,1,0.36,1),
+        box-shadow 0.35s ease;
+    }
+
+    .gallery-figure:hover{
+      transform:translateY(-8px);
+
+      box-shadow:var(--shadow-hover);
+    }
+
+    .gallery-figure img{
+      display:block;
+
+      width:100%;
+
+      height:
+        clamp(
+          170px,
+          22vw,
+          330px
+        );
+
+      object-fit:cover;
+
+      border-radius:18px;
+
+      transition:
+        transform 0.35s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    .gallery-figure:hover img{
+      transform:scale(1.03);
+    }
+
+    .gallery-item.tall .gallery-figure img{
+      height:
+        clamp(
+          240px,
+          32vw,
+          450px
+        );
+    }
+
+    .gallery-item.wide .gallery-figure img{
+      height:
+        clamp(
+          150px,
+          18vw,
+          230px
+        );
+    }
+
+    .gallery-item.small .gallery-figure img{
+      height:
+        clamp(
+          140px,
+          16vw,
+          220px
+        );
+    }
+
+    .gallery-info{
+      position:absolute;
+
+      inset:auto 0 0 0;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      padding:12px 12px 10px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,0),
+          rgba(0,0,0,0.72)
+        );
+
+      opacity:0;
+
+      transition:opacity 0.45s ease;
+    }
+
+    .gallery-figure:hover .gallery-info{
+      opacity:1;
+    }
+
+    .gallery-info span{
+      font-size:12px;
+
+      color:
+        rgba(255,255,255,0.9);
+
+      font-weight:600;
+    }
+
+    .gallery-magnify{
+      width:30px;
+      height:30px;
+
+      border-radius:999px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.22);
+
+      display:grid;
+
+      place-items:center;
+
+      background:
+        rgba(10,16,24,0.32);
+
+      font-weight:700;
+
+      color:#fff;
+
+      font-size:18px;
+
+      line-height:1;
+    }
+
+
+    /* ==================================================
+       LIGHTBOX
+    =================================================== */
+
+    .lightbox{
+      position:fixed;
+
+      inset:0;
+
+      background:
+        rgba(0,0,0,0.82);
+
+      display:flex;
+
+      align-items:center;
+      justify-content:center;
+
+      z-index:120;
+
+      padding:18px;
+
+      opacity:0;
+
+      visibility:hidden;
+
+      transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+    }
+
+    .lightbox.open{
+      opacity:1;
+
+      visibility:visible;
+    }
+
+    .lightbox img{
+      max-width:96%;
+
+      max-height:86%;
+
+      border-radius:12px;
+
+      box-shadow:
+        0 18px 60px rgba(0,0,0,0.5);
+
+      object-fit:contain;
+    }
+
+    .lb-controls{
+      position:fixed;
+
+      left:12px;
+      right:12px;
+
+      bottom:28px;
+
+      display:flex;
+
+      justify-content:space-between;
+
+      gap:12px;
+    }
+
+    .lb-btn{
+      background:
+        rgba(17,27,45,0.75);
+
+      border:
+        1px solid
+        var(--glass-border);
+
+      color:var(--text);
+
+      padding:10px 12px;
+
+      border-radius:10px;
+
+      cursor:pointer;
+    }
+
+    .lb-btn:hover{
+      transform:translateY(-2px);
+
+      background:
+        rgba(37,99,235,0.35);
+
+      color:#ffffff;
+    }
+
+
+    /* ==================================================
+       SECCIÓN 15 DE SEPTIEMBRE
+    =================================================== */
+
+    .septiembre-text{
+      margin:0;
+
+      color:#0a4589;
+
+      font-size:20px;
+
+      line-height:1.5;
+
+      text-align:center;
+    }
+
+
+    /* ==================================================
+       BOTÓN DE TEMA
+    =================================================== */
+
+    .theme-toggle{
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      padding:8px;
+
+      border-radius:10px;
+
+      border:
+        1px solid
+        var(--glass-border);
+
+      background:
+        rgba(255,255,255,0.02);
+
+      color:var(--muted);
+
+      cursor:pointer;
+
+      transform-origin:center;
+
+      box-shadow:var(--shadow-soft);
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    .theme-toggle:hover{
+      transform:translateY(-1px);
+    }
+
+    .theme-toggle:active{
+      transform:
+        translateY(1px)
+        scale(0.98);
+    }
+
+    .theme-toggle.is-animating{
+      transform:
+        translateY(-3px)
+        rotate(8deg);
+    }
+
+    .theme-toggle.is-animating::after{
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.08),
+          transparent
+        );
+    }
+
+    .theme-toggle svg{
+      width:18px;
+      height:18px;
+
+      display:block;
+
+      transition:
+        transform .45s cubic-bezier(0.22,1,0.36,1),
+        stroke .3s ease,
+        fill .3s ease;
+    }
+
+    .theme-toggle[data-theme="light"]{
+      color:#FACC15;
+
+      box-shadow:
+        0 8px 20px rgba(250,204,21,0.18);
+
+      border-color:
+        rgba(250,204,21,0.28);
+    }
+
+    .theme-toggle[data-theme="light"] svg{
+      transform:rotate(8deg);
+
+      fill:#FACC15;
+
+      stroke:#FACC15;
+    }
+
+
+    /* ==================================================
+       MODO CLARO
+    =================================================== */
+
+    :root[data-theme="light"],
+    [data-theme="light"]{
       --bg:#EEF2F7;
       --panel:#F8FAFC;
       --card:#FFFFFF;
+
       --border:#D7DEE8;
+
       --text:#172033;
       --muted:#64748B;
+
       --accent:#2563EB;
       --accent-2:#3B82F6;
       --accent-3:#0891B2;
-      --glass: rgba(255,255,255,0.9);
-      --glass-2: rgba(245,247,250,0.9);
-      --glass-border: rgba(215,222,232,0.9);
-      --card-border-hover: rgba(37,99,235,0.24);
-      --card-glow: rgba(37,99,235,0.08);
-      --accent-shadow: rgba(37,99,235,0.08);
-      --accent-border: rgba(37,99,235,0.14);
-      --accent-ghost: rgba(219,234,254,0.72);
-      --accent-glow: rgba(37,99,235,0.12);
-      --accent2-06: rgba(59,130,246,0.08);
-      --accent2-02: rgba(59,130,246,0.03);
-      --shadow-soft: 0 4px 15px rgba(15,23,42,0.08);
-      --shadow-hover: 0 15px 35px rgba(15,23,42,0.12);
-      --card-shadow: 0 10px 25px rgba(15,23,42,0.08);
-      --nav-overlay-1: rgba(255,255,255,0.7);
-      --nav-overlay-2: rgba(255,255,255,0.42);
-      --panel-overlay-1: rgba(255,255,255,0.9);
-      --panel-overlay-2: rgba(245,247,250,0.9);
-      --card-soft-1: rgba(219,234,254,0.7);
-      --card-soft-2: rgba(229,236,255,0.65);
-      color-scheme: light;
+
+      --glass:rgba(255,255,255,0.9);
+      --glass-2:rgba(245,247,250,0.9);
+
+      --glass-border:
+        rgba(215,222,232,0.9);
+
+      --card-border-hover:
+        rgba(37,99,235,0.24);
+
+      --card-glow:
+        rgba(37,99,235,0.08);
+
+      --accent-shadow:
+        rgba(37,99,235,0.08);
+
+      --accent-border:
+        rgba(37,99,235,0.14);
+
+      --accent-ghost:
+        rgba(219,234,254,0.72);
+
+      --accent-glow:
+        rgba(37,99,235,0.12);
+
+      --accent2-06:
+        rgba(59,130,246,0.08);
+
+      --accent2-02:
+        rgba(59,130,246,0.03);
+
+      --shadow-soft:
+        0 4px 15px rgba(15,23,42,0.08);
+
+      --shadow-hover:
+        0 15px 35px rgba(15,23,42,0.12);
+
+      --card-shadow:
+        0 10px 25px rgba(15,23,42,0.08);
+
+      --nav-overlay-1:
+        rgba(255,255,255,0.7);
+
+      --nav-overlay-2:
+        rgba(255,255,255,0.42);
+
+      --panel-overlay-1:
+        rgba(255,255,255,0.9);
+
+      --panel-overlay-2:
+        rgba(245,247,250,0.9);
+
+      --card-soft-1:
+        rgba(219,234,254,0.7);
+
+      --card-soft-2:
+        rgba(229,236,255,0.65);
+
+      color-scheme:light;
     }
 
-    /* VIDEOS: estilos para adaptar los videos al ancho disponible. */
-    .videos-grid{display:grid;grid-template-columns:1fr;gap:12px}
-    .video-card video{width:100%;height:auto;border-radius:10px;display:block}
 
-    /* PIE DE PÁGINA: información institucional y autoría del sitio. */
-    footer{padding:18px;text-align:center;color:var(--muted);font-size:14px}
+    /* ==================================================
+       VIDEOS
+    =================================================== */
 
-    /* DISEÑO RESPONSIVO MOBILE-FIRST: primero se adapta a pantallas pequeñas y luego se amplía para escritorio. */
+    .videos-grid{
+      display:grid;
+
+      grid-template-columns:1fr;
+
+      gap:12px;
+    }
+
+    .video-card video{
+      width:100%;
+
+      height:auto;
+
+      border-radius:10px;
+
+      display:block;
+    }
+
+
+    /* ==================================================
+       FOOTER
+    =================================================== */
+
+    footer{
+      padding:18px;
+
+      text-align:center;
+
+      color:var(--muted);
+
+      font-size:14px;
+    }
+
+
+    /* ==================================================
+       ANIMACIÓN DE APARICIÓN
+    =================================================== */
+
+    .reveal{
+      opacity:0;
+
+      transform:translateY(12px);
+
+      transition:
+        opacity .6s ease,
+        transform .6s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+
+      transform:none;
+    }
+
+
+    /* ==================================================
+       RESPONSIVE
+    =================================================== */
+
     @media(min-width:700px){
-      body{display:block;justify-content:initial}
-      main{width:min(100%, var(--max-width));padding:18px 18px 30px}
-      .nav-wrap{width:min(100%, var(--max-width));max-width:calc(100% - 24px)}
-      .masonry{column-count:3}
-      .projects{grid-template-columns:repeat(2,1fr)}
-      .grid.cards-3{grid-template-columns:repeat(3,1fr)}
-      .hero h1{font-size:56px}
-      .hamburger{display:none}
-      .nav-links{display:flex}
-      .hero-grid{flex-direction:row;align-items:center}
-      .cta{flex-direction:row;align-items:center;width:auto}
-      .btn{width:auto}
-      .malla-card{flex-direction:row;align-items:center}
-      .gallery-masonry{column-count:3}
+
+      main{
+        width:min(100%, var(--max-width));
+
+        padding:
+          18px
+          18px
+          30px;
+      }
+
+      .nav-wrap{
+        width:min(100%, var(--max-width));
+
+        max-width:
+          calc(100% - 24px);
+      }
+
+      .projects{
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .grid.cards-3{
+        grid-template-columns:
+          repeat(3,1fr);
+      }
+
+      .hero h1{
+        font-size:56px;
+      }
+
+      .hero-grid{
+        flex-direction:row;
+
+        align-items:center;
+      }
+
+      .cta{
+        flex-direction:row;
+
+        align-items:center;
+
+        width:auto;
+      }
+
+      .btn{
+        width:auto;
+      }
+
+      .malla-card{
+        flex-direction:row;
+
+        align-items:center;
+      }
+
+      .gallery-masonry{
+        column-count:3;
+      }
     }
+
 
     @media(max-width:699px){
-      .hamburger{display:inline-flex}
+
+      .hamburger{
+        display:inline-flex;
+      }
+
+      .nav-wrap{
+        padding:8px;
+      }
+
+      .brand{
+        justify-content:center;
+      }
+
       .nav-links{
-        position:fixed;top:74px;left:12px;right:12px;display:none;flex-wrap:wrap;align-items:stretch;justify-content:space-between;gap:10px;
-        padding:18px 12px 12px;border-radius:18px;border:1px solid var(--glass-border);background:linear-gradient(180deg, rgba(13,20,34,0.98), rgba(17,27,45,0.97));
-        box-shadow:0 18px 38px rgba(2,6,23,0.4);z-index:80;backdrop-filter:blur(12px)
+        position:fixed;
+
+        top:74px;
+
+        left:12px;
+        right:12px;
+
+        display:none;
+
+        flex-wrap:wrap;
+
+        align-items:stretch;
+
+        justify-content:space-between;
+
+        gap:10px;
+
+        padding:
+          18px
+          12px
+          12px;
+
+        border-radius:18px;
+
+        border:
+          1px solid
+          var(--glass-border);
+
+        background:
+          linear-gradient(
+            180deg,
+            rgba(13,20,34,0.98),
+            rgba(17,27,45,0.97)
+          );
+
+        box-shadow:
+          0 18px 38px rgba(2,6,23,0.4);
+
+        z-index:80;
+
+        backdrop-filter:blur(12px);
       }
-      .nav-links.is-open{display:flex}
-      .nav-links a{flex:1 1 calc(50% - 8px);min-height:64px;padding:14px 12px;font-size:0.95rem;border-radius:14px}
+
+      .nav-links.is-open{
+        display:flex;
+      }
+
+      .nav-links a{
+        flex:
+          1 1
+          calc(50% - 8px);
+
+        min-height:64px;
+
+        padding:14px 12px;
+
+        font-size:0.95rem;
+
+        border-radius:14px;
+      }
+
       .menu-close{
-        position:absolute;top:8px;right:8px;display:inline-flex;align-items:center;justify-content:center;
-        width:36px;height:36px;border:1px solid var(--glass-border);background:rgba(255,255,255,0.04);color:var(--text);
-        border-radius:12px;font-size:1.6rem;line-height:1;cursor:pointer;padding:0;
+        position:absolute;
+
+        top:8px;
+        right:8px;
+
+        display:inline-flex;
+
+        align-items:center;
+        justify-content:center;
+
+        width:36px;
+        height:36px;
+
+        border:
+          1px solid
+          var(--glass-border);
+
+        background:
+          rgba(255,255,255,0.04);
+
+        color:var(--text);
+
+        border-radius:12px;
+
+        font-size:1.6rem;
+
+        line-height:1;
+
+        cursor:pointer;
+
+        padding:0;
       }
-      .hero h1{font-size:clamp(1.8rem, 8vw, 2.7rem)}
-      .masonry{column-count:2}
-      .brand .titles .institute{font-size:8.8px;letter-spacing:0.06em;line-height:1.35}
-      .brand .titles .career{font-size:9.2px;letter-spacing:0.03px;line-height:1.35}
-      .brand img{height:38px;width:38px}
-      .theme-toggle{padding:7px}
-      .hero-inner{padding:16px 12px 18px}
-      .nav-wrap{padding:8px 8px 10px;width:min(100%, 390px)}
-      main{padding-left:8px;padding-right:8px;width:min(100%, 390px)}
-      section{margin:18px 0}
+
+      .hero h1{
+        font-size:
+          clamp(
+            1.8rem,
+            8vw,
+            2.7rem
+          );
+      }
+
+      .brand .titles .institute{
+        font-size:8.8px;
+
+        letter-spacing:0.06em;
+
+        line-height:1.35;
+      }
+
+      .brand .titles .career{
+        font-size:9.2px;
+
+        letter-spacing:0.03px;
+
+        line-height:1.35;
+      }
+
+      .brand img{
+        height:38px;
+        width:38px;
+      }
+
+      .theme-toggle{
+        padding:7px;
+      }
+
+      .hero-inner{
+        padding:
+          16px
+          12px
+          18px;
+      }
+
+      .nav-wrap{
+        width:min(100%,390px);
+      }
+
+      main{
+        padding-left:8px;
+        padding-right:8px;
+
+        width:min(100%,390px);
+      }
+
+      section{
+        margin:18px 0;
+      }
+
+      .gallery-masonry{
+        column-count:2;
+      }
+
+      .gallery-figure img{
+        height:220px;
+      }
+
+      .gallery-item.tall .gallery-figure img{
+        height:280px;
+      }
+
+      .gallery-item.wide .gallery-figure img{
+        height:190px;
+      }
+
+      .gallery-item.small .gallery-figure img{
+        height:190px;
+      }
     }
 
-    /* AJUSTES PARA TELÉFONOS PEQUEÑOS (hasta 420 px): evita desbordamientos y mejora la navegación táctil. */
-    @media (max-width:420px){
-      /* El contenido principal ocupa prácticamente todo el ancho, dejando pequeños márgenes laterales. */
-      main{width:100%;padding-left:12px;padding-right:12px}
-      .nav-wrap{left:0;right:0;margin:10px 12px 0;padding:8px 10px;max-width:calc(100% - 24px)}
 
-      /* Apila el contenido del Hero y evita que imágenes o tarjetas salgan del ancho de la pantalla. */
-      .hero{padding:72px 8px 18px}
-      .hero-inner{padding:14px;border-radius:14px}
-      .hero-grid{flex-direction:column!important;align-items:stretch}
-      .hero-right{width:100%!important;max-width:100%!important;margin-top:8px}
-      .hero-left{text-align:center}
+    @media(max-width:420px){
 
-      /* Evita que paneles y tarjetas provoquen desplazamiento horizontal accidental. */
-      .panel, .card, .project, .malla-card{overflow:hidden}
+      main{
+        width:100%;
 
-      /* Reduce el tamaño del título principal para evitar saltos de línea incómodos. */
-      .hero h1{font-size:clamp(1.5rem, 6.8vw, 2.2rem)}
+        padding-left:12px;
+        padding-right:12px;
+      }
 
-      /* En teléfonos pequeños, cada enlace del menú abierto ocupa una fila completa. */
-      .nav-links{left:8px;right:8px;top:68px;padding:14px;gap:8px}
-      .nav-links a{flex:1 1 100%;min-width:0}
+      .nav-wrap{
+        left:0;
+        right:0;
 
-      /* Evita que aparezca una barra de desplazamiento horizontal dentro de la cabecera. */
-      header{left:0;right:0}
+        margin:
+          10px
+          12px
+          0;
+
+        padding:
+          8px
+          10px;
+
+        max-width:
+          calc(100% - 24px);
+      }
+
+      .hero{
+        padding:
+          72px
+          8px
+          18px;
+      }
+
+      .hero-inner{
+        padding:14px;
+
+        border-radius:14px;
+      }
+
+      .hero-grid{
+        flex-direction:column !important;
+
+        align-items:stretch;
+      }
+
+      .hero-right{
+        width:100% !important;
+
+        max-width:100% !important;
+
+        margin-top:8px;
+      }
+
+      .hero-left{
+        text-align:center;
+      }
+
+      .panel,
+      .card,
+      .project,
+      .malla-card{
+        overflow:hidden;
+      }
+
+      .hero h1{
+        font-size:
+          clamp(
+            1.5rem,
+            6.8vw,
+            2.2rem
+          );
+      }
+
+      .nav-links{
+        left:8px;
+        right:8px;
+
+        top:68px;
+
+        padding:14px;
+
+        gap:8px;
+      }
+
+      .nav-links a{
+        flex:
+          1 1 100%;
+
+        min-width:0;
+      }
+
+      .gallery-masonry{
+        column-count:1;
+      }
+
+      .gallery-figure img{
+        height:320px;
+      }
+
+      .gallery-item.tall .gallery-figure img{
+        height:380px;
+      }
+
+      .gallery-item.wide .gallery-figure img{
+        height:280px;
+      }
+
+      .gallery-item.small .gallery-figure img{
+        height:280px;
+      }
     }
+
 
     @media(min-width:1100px){
-      .hero-grid{gap:30px}
-      .hero-inner{padding:36px}
-      .hero-left{padding:8px}
+
+      .hero-grid{
+        gap:30px;
+      }
+
+      .hero-inner{
+        padding:36px;
+      }
+
+      .hero-left{
+        padding:8px;
+      }
     }
 
-    /* Clases auxiliares reutilizables para texto secundario y centrado. */
-    .muted{color:var(--muted)}
-    .center{display:flex;align-items:center;justify-content:center}
 
-    /* AJUSTES RESPONSIVOS GLOBALES: límites para imágenes, videos, SVG y elementos de navegación. */
-    img, video, svg { max-width:100%; height:auto; display:block }
-    .nav-wrap, .hero-inner, .panel, main { box-sizing: border-box }
-    .brand, .brand .titles { min-width:0 }
-    .brand .titles { overflow-wrap:anywhere; word-break:break-word }
+    /* ==================================================
+       ACCESIBILIDAD Y CONTROLES
+    =================================================== */
 
-    /* Evita que títulos largos se salgan de la pantalla en dispositivos pequeños. */
-    .hero h1{font-size:clamp(1.6rem, 7.2vw, 2.8rem);line-height:1.06;overflow-wrap:anywhere;word-break:break-word}
-    .hero p.lead{font-size:clamp(0.85rem, 3.6vw, 1rem);max-width:100%}
+    .nav-wrap,
+    .hero-inner,
+    .panel,
+    main{
+      box-sizing:border-box;
+    }
 
-    /* Permite que los botones del menú se adapten y mantengan un tamaño cómodo para tocar. */
-    .nav-links{flex-wrap:wrap;gap:8px}
-    .nav-links a{white-space:normal;text-align:center;flex:0 1 auto;min-width:96px;padding:12px 10px}
-    .menu-close{width:44px;height:44px;min-width:44px;min-height:44px}
+    .brand,
+    .brand .titles{
+      min-width:0;
+    }
 
-    /* Garantiza un área mínima de toque adecuada para botones y controles interactivos. */
-    .btn, .gallery-grade, .lb-btn, .theme-toggle{min-height:48px;min-width:48px;padding:12px 14px}
+    .brand .titles{
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
 
-    /* Bloquea el desplazamiento horizontal causado por elementos demasiado grandes. */
-    html,body{overflow-x:hidden}
-
-
-    /* ANIMACIÓN DE APARICIÓN: los elementos comienzan ocultos y aparecen suavemente al entrar en pantalla. */
-    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
-    .reveal.visible{opacity:1;transform:none}
+    .btn,
+    .gallery-figure,
+    .lb-btn,
+    .theme-toggle{
+      min-height:48px;
+      min-width:48px;
+    }
 
   </style>
 </head>
+
+
 <body>
 
-
-<!--
-    INFORMÁTICA IPDVM 2026
-    Developed by Angel Hernández
--->
+  <!-- ==================================================
+       CABECERA
+  =================================================== -->
 
   <header>
+
     <div class="nav-wrap" role="banner">
+
       <div class="brand">
-        <img src="assets/img/logo/logo-ipdvm.png" alt="Logo IPDVM" loading="lazy">
+
+        <img
+          src="assets/img/logo/logo-ipdvm.png"
+          alt="Logo IPDVM"
+          loading="lazy"
+        >
+
         <div class="titles">
-          <div class="institute">INSTITUTO POLIVALENTE</div>
-          <div class="career">DR. DOROTEO VARELA MEJÍA · INFORMÁTICA ORIENTADA A PROGRAMACIÓN</div>
+
+          <div class="institute">
+            INSTITUTO POLIVALENTE
+          </div>
+
+          <div class="career">
+            DR. DOROTEO VARELA MEJÍA · INFORMÁTICA ORIENTADA A PROGRAMACIÓN
+          </div>
+
         </div>
+
       </div>
 
     </div>
+
   </header>
 
+
+  <!-- ==================================================
+       FONDO TECNOLÓGICO
+  =================================================== -->
+
   <div class="tech-bg" aria-hidden="true">
-    <svg class="tech-canvas" viewBox="0 0 1200 600" preserveAspectRatio="none">
+
+    <svg
+      class="tech-canvas"
+      viewBox="0 0 1200 600"
+      preserveAspectRatio="none"
+    >
+
       <defs>
-        <linearGradient id="g1" x1="0" x2="1">
-          <stop offset="0" stop-color="#0D1422" stop-opacity="0.6" />
-          <stop offset="1" stop-color="#0D1422" stop-opacity="0.0" />
+
+        <linearGradient
+          id="g1"
+          x1="0"
+          x2="1"
+        >
+
+          <stop
+            offset="0"
+            stop-color="#0D1422"
+            stop-opacity="0.6"
+          />
+
+          <stop
+            offset="1"
+            stop-color="#0D1422"
+            stop-opacity="0.0"
+          />
+
         </linearGradient>
+
       </defs>
-      <rect width="1200" height="600" fill="url(#g1)"></rect>
-      <!-- Cuadrícula horizontal muy tenue usada como decoración tecnológica de fondo. -->
-      <g stroke="rgba(245,247,250,0.03)" stroke-width="1">
-        <path d="M20 100 L1180 100" />
-        <path d="M20 200 L1180 200" />
-        <path d="M20 300 L1180 300" />
-        <path d="M20 400 L1180 400" />
+
+      <rect
+        width="1200"
+        height="600"
+        fill="url(#g1)"
+      ></rect>
+
+      <g
+        stroke="rgba(245,247,250,0.03)"
+        stroke-width="1"
+      >
+
+        <path d="M20 100 L1180 100"></path>
+        <path d="M20 200 L1180 200"></path>
+        <path d="M20 300 L1180 300"></path>
+        <path d="M20 400 L1180 400"></path>
+
       </g>
+
     </svg>
+
   </div>
+
+
+  <!-- ==================================================
+       CONTENIDO PRINCIPAL
+  =================================================== -->
 
   <main id="inicio">
 
-    <!-- PORTADA PRINCIPAL: presenta el nombre de la carrera, descripción y botones de acción. -->
+
+    <!-- ==================================================
+         HERO
+    =================================================== -->
+
     <section class="hero">
-      <div class="hero-inner panel reveal" id="heroInner">
+
+      <div
+        class="hero-inner panel reveal"
+        id="heroInner"
+      >
+
         <div class="hero-grid">
+
           <div class="hero-left">
-            <img src="assets/img/logo/logo-ipdvm.png" alt="Logo IPDVM" style="height:72px;width:72px;object-fit:contain;border-radius:10px;margin-bottom:10px" loading="lazy">
-            <h1>INFORMÁTICA ORIENTADA A PROGRAMACIÓN</h1>
-            <p class="lead">Bachillerato Técnico Profesional en Informática orientada a programación — Donde las ideas se convierten en tecnología.</p>
+
+            <img
+              src="assets/img/logo/logo-ipdvm.png"
+              alt="Logo IPDVM"
+              style="
+                height:72px;
+                width:72px;
+                object-fit:contain;
+                border-radius:10px;
+                margin-bottom:10px
+              "
+              loading="lazy"
+            >
+
+            <h1>
+             INFORMÁTICA ORIENTADA A PROGRAMACIÓN
+            </h1>
+
+            <p class="lead">
+              Bachillerato Técnico Profesional en Informática orientada a programación —
+              Donde las ideas se convierten en tecnología.
+            </p>
+
             <div class="cta">
-              <button class="btn" id="explorar">EXPLORAR LA CARRERA</button>
-              <a class="btn secondary" href="#conoce">Saber más</a>
+
+              <button
+                class="btn"
+                id="explorar"
+              >
+                EXPLORAR LA CARRERA
+              </button>
+
+              <a
+                class="btn secondary"
+                href="#conoce"
+              >
+                SABER MÁS
+              </a>
+
             </div>
+
           </div>
+
+
           <div class="hero-right">
-            <div style="width:100%;max-width:360px">
-              <div style="background:linear-gradient(135deg, var(--accent2-06), var(--accent2-02));padding:16px;border-radius:12px;border:1px solid var(--glass-border)">
-                <div style="height:220px;border-radius:10px;background:linear-gradient(135deg,var(--panel),var(--card));display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700">Fotografía próximamente</div>
-                <div style="display:flex;gap:8px;margin-top:10px;align-items:center;justify-content:space-between"><small class="muted">Explora proyectos, fotos y videos</small><small class="muted">2026</small></div>
-              </div>
-            </div>
+
+            <div
+              style="
+                width:100%;
+                max-width:360px
+              "
+            >
+
+              <div
+                style="
+                  background:
+                    linear-gradient(
+                      135deg,
+                      var(--accent2-06),
+                      var(--accent2-02)
+                    );
+
+                  padding:16px;
+
+                  border-radius:12px;
+
+                  border:
+                    1px solid
+                    var(--glass-border)
+                "
+              >
+
+         <div style="width:100%;max-width:360px">
+           <div style="background:linear-gradient(135deg, var(--accent2-06), var(--accent2-02));padding:16px;border-radius:12px;border:1px solid var(--glass-border)">
+
+            <div style="height:220px;border-radius:10px;overflow:hidden;background:var(--panel);display:flex;align-items:center;justify-content:center">
+            <img
+              src="assets/img/banner/banner.jpeg"
+              alt="Experiencia de Informática Orientada a Programación"
+              style="width:100%;height:100%;object-fit:cover;display:block"
+              loading="eager"
+              >
           </div>
+
+          <div style="display:flex;gap:8px;margin-top:10px;align-items:center;justify-content:space-between">
+            <small class="muted">Explora proyectos, fotos y videos</small>
+            <small class="muted">2026</small>
+          </div>
+
         </div>
       </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <!-- INFORMACIÓN GENERAL: explica qué es la carrera y muestra su misión y visión. -->
+
+    <!-- ==================================================
+         CONOCE LA CARRERA
+    =================================================== -->
+
     <section id="conoce">
-  <div class="panel reveal">
-    <h2 class="section-title">CONOCE INFORMÁTICA ORIENTADA A PROGRAMACIÓN</h2>
-    <div class="grid" style="grid-template-columns:1fr;gap:12px">
-      <div style="display:grid;grid-template-columns:1fr;gap:12px">
-        <p style="margin:0;color:var(--muted)">En el Bachillerato Técnico Profesional en Informática desarrollamos conocimientos y habilidades relacionadas con la tecnología, la programación, el desarrollo de soluciones digitales y el trabajo en equipo.</p>
-        
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">
-          <div class="card" style="min-width:160px">
-            <h3 style="text-align:center">Visión</h3>
-            <p class="muted">Ser un área de formación reconocida por impulsar la innovación, el aprendizaje tecnológico y el desarrollo integral de nuestros estudiantes, preparándolos para crear, transformar y aportar soluciones al futuro mediante la tecnología.</p>
-          </div>
 
-          <div class="card" style="min-width:160px">
-            <h3 style="text-align:center">Misión</h3>
-            <p class="muted">Formar estudiantes con conocimientos y habilidades en informática, capaces de desarrollar soluciones tecnológicas con creatividad, responsabilidad y pensamiento crítico, preparándolos para responder a las necesidades de un mundo cada vez más digital.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- PERFIL DEL ESTUDIANTE: muestra las principales competencias que se buscan desarrollar. -->
-    <section id="perfil">
-      <h2 class="section-title">PERFIL DEL ESTUDIANTE</h2>
-      <div class="grid cards-3">
-        <!-- Cada tarjeta representa una habilidad o característica del perfil del estudiante. -->
-        <div class="card reveal" tabindex="0">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 2h4a4 4 0 0 1 0 8h-4a4 4 0 0 1 0-8z"></path></svg></div>
-          <h3>Pensamiento lógico</h3>
-          <p class="muted">Desarrolla la capacidad de analizar problemas de forma estructurada.</p>
-        </div>
-        <div class="card reveal" tabindex="0">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2h-4"></path><path d="M17.5 8.5a6 6 0 1 0-8.5 8.5L21 3"/></svg></div>
-          <h3>Resolución de problemas</h3>
-          <p class="muted">Aprende metodologías para encontrar soluciones eficientes.</p>
-        </div>
-        <div class="card reveal" tabindex="0">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
-          <h3>Programación</h3>
-          <p class="muted">Fundamentos de programación y pensamiento algorítmico.</p>
-        </div>
-        <div class="card reveal" tabindex="0">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0-8-8"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
-          <h3>Creatividad</h3>
-          <p class="muted">Capacidad para diseñar soluciones con un enfoque creativo.</p>
-        </div>
-        <div class="card reveal" tabindex="0">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-3-3.87"></path><path d="M7 21v-2a4 4 0 0 1 3-3.87"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-          <h3>Trabajo en equipo</h3>
-          <p class="muted">Colabora en proyectos con comunicación efectiva.</p>
-        </div>
-        <div class="card reveal" tabindex="0">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
-          <h3>Responsabilidad</h3>
-          <p class="muted">Ética y compromiso con el trabajo académico y práctico.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ÁREAS DE FORMACIÓN: enumera los conocimientos tecnológicos que se trabajan. -->
-    <section id="formacion">
-      <h2 class="section-title">¿QUÉ APRENDEMOS?</h2>
       <div class="panel reveal">
+
+        <h2 class="section-title">
+          CONOCE INFORMÁTICA ORIENTADA A PROGRAMACIÓN
+        </h2>
+
+        <div
+          class="grid"
+          style="
+            grid-template-columns:1fr;
+            gap:12px
+          "
+        >
+
+          <div
+            style="
+              display:grid;
+              grid-template-columns:1fr;
+              gap:12px
+            "
+          >
+
+            <p
+              style="
+                margin:0;
+                color:var(--muted);
+                text-align:center
+              "
+            >
+              En el Bachillerato Técnico Profesional en Informática desarrollamos
+              conocimientos y habilidades relacionadas con la tecnología,
+              la programación, el desarrollo de soluciones digitales
+              y el trabajo en equipo.
+            </p>
+
+
+            <div
+              style="
+                display:flex;
+                gap:12px;
+                flex-wrap:wrap;
+                margin-top:6px
+              "
+            >
+
+              <div
+                class="card"
+                style="min-width:160px;flex:1"
+              >
+
+                <h3>
+                  VISIÓN
+                </h3>
+
+                <p class="muted">
+                  Ser un área de formación reconocida por impulsar la innovación,
+                  el aprendizaje tecnológico y el desarrollo integral de nuestros
+                  estudiantes, preparándolos para crear, transformar y aportar
+                  soluciones al futuro mediante la tecnología.
+                </p>
+
+              </div>
+
+
+              <div
+                class="card"
+                style="min-width:160px;flex:1"
+              >
+
+                <h3>
+                  MISIÓN
+                </h3>
+
+                <p class="muted">
+                  Formar estudiantes con conocimientos y habilidades en informática,
+                  capaces de desarrollar soluciones tecnológicas con creatividad,
+                  responsabilidad y pensamiento crítico, preparándolos para responder
+                  a las necesidades de un mundo cada vez más digital.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         PERFIL
+    =================================================== -->
+
+    <section id="perfil">
+
+      <h2 class="section-title">
+        PERFIL DEL ESTUDIANTE
+      </h2>
+
+      <div class="grid cards-3">
+
+
+        <div
+          class="card reveal"
+          tabindex="0"
+        >
+
+          <div
+            class="icon"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <path d="M9 18h6"></path>
+              <path d="M10 2h4a4 4 0 0 1 0 8h-4a4 4 0 0 1 0-8z"></path>
+
+            </svg>
+
+          </div>
+
+          <h3>
+            Pensamiento lógico
+          </h3>
+
+          <p class="muted">
+            Desarrolla la capacidad de analizar problemas de forma estructurada.
+          </p>
+
+        </div>
+
+
+        <div
+          class="card reveal"
+          tabindex="0"
+        >
+
+          <div class="icon" aria-hidden="true">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <path d="M21 15v4a2 2 0 0 1-2 2h-4"></path>
+
+              <path
+                d="M17.5 8.5a6 6 0 1 0-8.5 8.5L21 3"
+              ></path>
+
+            </svg>
+
+          </div>
+
+          <h3>
+            Resolución de problemas
+          </h3>
+
+          <p class="muted">
+            Aprende metodologías para encontrar soluciones eficientes.
+          </p>
+
+        </div>
+
+
+        <div
+          class="card reveal"
+          tabindex="0"
+        >
+
+          <div class="icon" aria-hidden="true">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+
+            </svg>
+
+          </div>
+
+          <h3>
+            Programación
+          </h3>
+
+          <p class="muted">
+            Fundamentos de programación y pensamiento algorítmico.
+          </p>
+
+        </div>
+
+
+        <div
+          class="card reveal"
+          tabindex="0"
+        >
+
+          <div class="icon" aria-hidden="true">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <path d="M12 20a8 8 0 1 0-8-8"></path>
+
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+              ></circle>
+
+            </svg>
+
+          </div>
+
+          <h3>
+            Creatividad
+          </h3>
+
+          <p class="muted">
+            Capacidad para diseñar soluciones con un enfoque creativo.
+          </p>
+
+        </div>
+
+
+        <div
+          class="card reveal"
+          tabindex="0"
+        >
+
+          <div class="icon" aria-hidden="true">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <path d="M17 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M7 21v-2a4 4 0 0 1 3-3.87"></path>
+
+              <circle
+                cx="12"
+                cy="7"
+                r="4"
+              ></circle>
+
+            </svg>
+
+          </div>
+
+          <h3>
+            Trabajo en equipo
+          </h3>
+
+          <p class="muted">
+            Colabora en proyectos con comunicación efectiva.
+          </p>
+
+        </div>
+
+
+        <div
+          class="card reveal"
+          tabindex="0"
+        >
+
+          <div class="icon" aria-hidden="true">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+
+              <rect
+                x="3"
+                y="11"
+                width="18"
+                height="11"
+                rx="2"
+              ></rect>
+
+              <path
+                d="M7 11V7a5 5 0 0 1 10 0v4"
+              ></path>
+
+            </svg>
+
+          </div>
+
+          <h3>
+            Responsabilidad
+          </h3>
+
+          <p class="muted">
+            Ética y compromiso con el trabajo académico y práctico.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         ÁREAS DE FORMACIÓN
+    =================================================== -->
+
+    <section id="formacion">
+
+      <h2 class="section-title">
+        ¿QUÉ APRENDEMOS?
+      </h2>
+
+      <div class="panel reveal">
+
         <div class="areas">
-          <div class="area"><span class="dot" aria-hidden></span><div><strong>Programación</strong><div class="muted">Ejemplos: lógica, algoritmos, proyectos.</div></div></div>
-          <div class="area"><span class="dot"></span><div><strong>Desarrollo web</strong><div class="muted">HTML, CSS, JavaScript y experiencia de usuario.</div></div></div>
-          <div class="area"><span class="dot"></span><div><strong>Bases de datos</strong><div class="muted">Modelado y consultas (áreas ilustrativas).</div></div></div>
-          <div class="area"><span class="dot"></span><div><strong>Redes y Sistemas</strong><div class="muted">Conceptos de redes y administración básica.</div></div></div>
-          <div class="area"><span class="dot"></span><div><strong>Seguridad informática</strong><div class="muted">Buenas prácticas y concienciación.</div></div></div>
+
+          <div class="area">
+
+            <span
+              class="dot"
+              aria-hidden="true"
+            ></span>
+
+            <div>
+
+              <strong>
+                Programación
+              </strong>
+
+              <div class="muted">
+                Ejemplos: lógica, algoritmos, proyectos.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="area">
+
+            <span
+              class="dot"
+              aria-hidden="true"
+            ></span>
+
+            <div>
+
+              <strong>
+                Desarrollo web
+              </strong>
+
+              <div class="muted">
+                HTML, CSS, JavaScript y experiencia de usuario.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="area">
+
+            <span
+              class="dot"
+              aria-hidden="true"
+            ></span>
+
+            <div>
+
+              <strong>
+                Bases de datos
+              </strong>
+
+              <div class="muted">
+                Modelado y consultas.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="area">
+
+            <span
+              class="dot"
+              aria-hidden="true"
+            ></span>
+
+            <div>
+
+              <strong>
+                Redes y Sistemas
+              </strong>
+
+              <div class="muted">
+                Conceptos de redes y administración básica.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="area">
+
+            <span
+              class="dot"
+              aria-hidden="true"
+            ></span>
+
+            <div>
+
+              <strong>
+                Seguridad informática
+              </strong>
+
+              <div class="muted">
+                Buenas prácticas y concienciación.
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- MALLA CURRICULAR: proporciona el enlace al documento PDF. -->
+
+    <!-- ==================================================
+         MALLA CURRICULAR
+    =================================================== -->
+
     <section id="malla">
-      <h2 class="section-title">MALLA CURRICULAR</h2>
+
+      <h2 class="section-title">
+        MALLA CURRICULAR
+      </h2>
+
       <div class="panel malla-card reveal">
-        <div class="doc" aria-hidden>
-          <svg viewBox="0 0 24 24" width="44" height="44" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h7l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/></svg>
+
+        <div
+          class="doc"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+
+            <path
+              d="
+                M6 2h7l5 5v13
+                a1 1 0 0 1-1 1H6
+                a1 1 0 0 1-1-1V3
+                a1 1 0 0 1 1-1z
+              "
+            ></path>
+
+          </svg>
+
         </div>
+
+
         <div style="flex:1">
-          <h3>Descargar malla curricular</h3>
-          <p class="muted">Accede a la malla curricular oficial (archivo PDF). Archivo preparado para abrir en nueva pestaña.</p>
-          <div style="margin-top:8px"><a class="btn" href="assets/docs/malla-curricular.pdf" target="_blank" rel="noopener">VER MALLA CURRICULAR</a></div>
+
+          <h3>
+            Descargar malla curricular
+          </h3>
+
+          <p class="muted">
+            Accede a la malla curricular oficial.
+            El archivo está preparado para abrirse en una nueva pestaña.
+          </p>
+
+          <div style="margin-top:8px">
+
+            <a
+              class="btn"
+              href="assets/docs/malla-curricular.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              VER MALLA CURRICULAR
+            </a>
+
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- PROYECTOS: espacio preparado para agregar fotografías, nombres, descripciones y enlaces de proyectos. -->
+
+    <!-- ==================================================
+         NUESTROS PROYECTOS
+    =================================================== -->
+
     <section id="proyectos">
-      <h2 class="section-title">NUESTROS PROYECTOS</h2>
+
+      <h2 class="section-title">
+        NUESTROS PROYECTOS
+      </h2>
+
       <div class="projects">
+
+
+        <!--
+          ==================================================
+          PROYECTO 1
+
+          Página web:
+          assets/proyectos/proyecto1/index.html
+          ==================================================
+        -->
+
         <div class="project panel reveal">
-          <div class="thumb">Imagen del proyecto (próximamente)</div>
-          <div class="meta">
-            <h3>Proyecto de ejemplo</h3>
-            <p class="muted">Descripción del proyecto. Información editable posteriormente.</p>
-            <div style="margin-top:8px"><button class="btn">VER PROYECTO</button></div>
+
+          <div class="thumb">
+            Página web del proyecto 1
           </div>
+
+          <div class="meta">
+
+            <h3>
+              PROYECTO 1
+            </h3>
+            <b> CONTROL FINANCIERO</b>
+            <p class="muted">
+              Una aplicación web que nos sirve para administrar nuestras finanzas de forma ordenada y eficiente generando un historial de actividades y un registro de gastos e ingresos.
+            </p>
+
+            <div class="project-action">
+
+              <a
+                class="btn"
+                href="assets/proyectos/proyecto1/index.html"
+                target="_blank"
+                rel="noopener"
+              >
+                VER PROYECTO
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
+
+
+        <!--
+          ==================================================
+          PROYECTO 2
+
+          Página web:
+          assets/proyectos/proyecto2/index.html
+          ==================================================
+        -->
+
         <div class="project panel reveal">
-          <div class="thumb">Imagen del proyecto (próximamente)</div>
-          <div class="meta">
-            <h3>Proyecto</h3>
-            <p class="muted">Descripción del proyecto.</p>
-            <div style="margin-top:8px"><button class="btn">VER PROYECTO</button></div>
+
+          <div class="thumb">
+            Página web del proyecto 2
           </div>
+
+          <div class="meta">
+
+            <h3>
+              PROYECTO 2
+            </h3>
+            <b>Campus Connect</b>
+            <p class="muted">
+              Una aplicación web dedicada a la gestion de listas de asistencia de estudiantes, permitiendo a los docentes llevar un control eficiente de la asistencia y participación de los alumnos en las clases.
+            </p>
+
+            <div class="project-action">
+
+              <a
+                class="btn"
+                href="assets/proyectos/proyecto2/index.html"
+                target="_blank"
+                rel="noopener"
+              >
+                VER PROYECTO
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
+
+
+        <!--
+          ==================================================
+          PROYECTO 3
+
+          Página web:
+          assets/proyectos/proyecto3/index.html
+          ==================================================
+        -->
+
         <div class="project panel reveal">
-          <div class="thumb">Proyecto próximamente</div>
-          <div class="meta">
-            <h3>Proyecto</h3>
-            <p class="muted">Descripción del proyecto.</p>
-            <div style="margin-top:8px"><button class="btn">VER PROYECTO</button></div>
+
+          <div class="thumb">
+            Página web del proyecto 3
           </div>
+
+          <div class="meta">
+
+            <h3>
+              PROYECTO 3
+            </h3>
+            <b> SIGA-IPDDVM</b>
+            <p class="muted">
+              Una pagina web que funciona como un sistema de gestión académica para el instituto, permitiendo a los estudiantes y docentes acceder a información relevante sobre cursos, calificaciones y actividades académicas.
+            </p>
+
+            <div class="project-action">
+
+              <a
+                class="btn"
+                href="assets/proyectos/proyecto3/index.html"
+                target="_blank"
+                rel="noopener"
+              >
+                VER PROYECTO
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
+
+
       </div>
+
     </section>
 
-    <!-- GALERÍA: organiza las fotografías por 10.º, 11.º y 12.º grado. -->
+
+    <!-- ==================================================
+         GALERÍA ÚNICA
+    =================================================== -->
+
     <section id="galeria">
+
       <div class="panel reveal gallery-shell">
+
         <div class="gallery-header">
-          <h2 class="section-title">NUESTRA EXPERIENCIA</h2>
-          <p class="gallery-kicker">Tres grados. Un mismo camino.</p>
+
+          <h2 class="section-title">
+            NUESTRA EXPERIENCIA
+          </h2>
+
+          <p class="gallery-kicker">
+            Una sola galería con nuestra experiencia institucional.
+          </p>
+
         </div>
 
-        <div class="grade-switcher" aria-label="Selector de grados">
-          <button class="gallery-grade is-active" type="button" data-grade="decimo">10.º GRADO</button>
-          <button class="gallery-grade" type="button" data-grade="undecimo">11.º GRADO</button>
-          <button class="gallery-grade" type="button" data-grade="duodecimo">12.º GRADO</button>
-        </div>
 
-        <div class="grade-panel is-visible" data-grade-panel="decimo">
-          <div class="grade-copy">
-            <h3>10.º GRADO</h3>
-            <p>Aquí comienza el camino.</p>
-          </div>
-          <div class="gallery-masonry" data-gallery="decimo" aria-live="polite"></div>
-        </div>
+        <!--
+          Las 16 fotografías se generan automáticamente
+          mediante JavaScript.
 
-        <div class="grade-panel" data-grade-panel="undecimo">
-          <div class="grade-copy">
-            <h3>11.º GRADO</h3>
-            <p>El conocimiento se convierte en experiencia.</p>
-          </div>
-          <div class="gallery-masonry" data-gallery="undecimo" aria-live="polite"></div>
-        </div>
+          Ruta:
+          assets/img/galeria/
 
-        <div class="grade-panel" data-grade-panel="duodecimo">
-          <div class="grade-copy">
-            <h3>12.º GRADO</h3>
-            <p>Listos para crear el futuro.</p>
-          </div>
-          <div class="gallery-masonry" data-gallery="duodecimo" aria-live="polite"></div>
-        </div>
+          Archivos:
+          Foto (1).jpeg
+          Foto (2).jpeg
+          ...
+          Foto (16).jpeg
+        -->
+
+        <div
+          class="gallery-masonry"
+          id="galleryContainer"
+          aria-live="polite"
+        ></div>
+
       </div>
+
     </section>
 
-    <!-- SECCIÓN DEL 15 DE SEPTIEMBRE: cierre institucional relacionado con el desfile. -->
+
+    <!-- ==================================================
+         15 DE SEPTIEMBRE
+    =================================================== -->
+
     <section id="septiembre">
-      <h2 class="section-title">15 DE SEPTIEMBRE · 2026</h2>
-      <div class="panel reveal" style="display:flex;align-items:center;justify-content:center;flex-direction:column">
-        <div style="max-width:760px;text-align:center">
-          <p class="muted">Celebremos la educación, la tecnología y el orgullo institucional. Esta sección es el cierre de la experiencia para el desfile del 15 de septiembre.</p>
+
+      <h2 class="section-title">
+        15 DE SEPTIEMBRE · 2026
+      </h2>
+
+      <div
+        class="panel reveal"
+        style="
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          flex-direction:column
+        "
+      >
+
+        <div
+          style="
+            max-width:760px;
+            text-align:center
+          "
+        >
+
+          <b class="septiembre-text">
+            Celebremos la educación, la tecnología y el orgullo institucional.
+            Esta sección es el cierre de la experiencia para el desfile
+            del 15 de septiembre.
+          </b>
+
         </div>
+
       </div>
+
     </section>
+
 
   </main>
 
-  <!-- VISOR DE IMÁGENES: permite ampliar una fotografía y recorrer las demás con controles. -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
-    <button class="lb-btn" id="lbClose" aria-label="Cerrar">Cerrar</button>
-    <img src="" alt="" id="lbImage">
+
+  <!-- ==================================================
+       LIGHTBOX
+  =================================================== -->
+
+  <div
+    id="lightbox"
+    class="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+  >
+
+    <button
+      class="lb-btn"
+      id="lbClose"
+      aria-label="Cerrar"
+    >
+      CERRAR
+    </button>
+
+    <img
+      src=""
+      alt=""
+      id="lbImage"
+    >
+
     <div class="lb-controls">
-      <button class="lb-btn" id="lbPrev">Anterior</button>
-      <button class="lb-btn" id="lbNext">Siguiente</button>
+
+      <button
+        class="lb-btn"
+        id="lbPrev"
+      >
+        ANTERIOR
+      </button>
+
+      <button
+        class="lb-btn"
+        id="lbNext"
+      >
+        SIGUIENTE
+      </button>
+
     </div>
+
   </div>
 
+
+  <!-- ==================================================
+       FOOTER
+  =================================================== -->
+
   <footer>
-    <div>INSTITUTO POLIVALENTE · DR. DOROTEO VARELA MEJÍA</div>
-    <div>ÁREA DE INFORMÁTICA ORIENTADA A PROGRAMACIÓN · 2026</div>
-    <div style="margin-top:6px;color:var(--muted);font-size:12px">Developed by Angel Hernández</div>
+
+    <div>
+      INSTITUTO POLIVALENTE · DR. DOROTEO VARELA MEJÍA
+    </div>
+
+    <div>
+      ÁREA DE INFORMÁTICA ORIENTADA A PROGRAMACIÓN · 2026
+    </div>
+
+    <div
+      style="
+        margin-top:6px;
+        color:var(--muted);
+        font-size:12px
+      "
+    >
+      Developed by Angel Hernández
+    </div>
+
   </footer>
 
-  <script>
-    // Menú móvil: obtiene los elementos necesarios para abrir y cerrar la navegación en pantallas pequeñas.
-    const ham = document.querySelector('.hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const menuClose = document.getElementById('menuClose');
 
-    // Cambia el estado del menú móvil.
-    // open=true agrega la clase is-open; open=false la elimina.
-    // También actualiza aria-expanded para que lectores de pantalla conozcan el estado.
+  <!-- ==================================================
+       JAVASCRIPT
+  =================================================== -->
+
+  <script>
+
+
+    /* ==================================================
+       MENÚ MÓVIL
+    =================================================== */
+
+    const ham =
+      document.querySelector('.hamburger');
+
+    const navLinks =
+      document.getElementById('nav-links');
+
+    const menuClose =
+      document.getElementById('menuClose');
+
+
     function setMenuState(open){
-      if(!navLinks) return;
-      navLinks.classList.toggle('is-open', open);
-      if (ham) ham.setAttribute('aria-expanded', String(open));
+
+      if(!navLinks){
+        return;
+      }
+
+      navLinks.classList.toggle(
+        'is-open',
+        open
+      );
+
+      if(ham){
+
+        ham.setAttribute(
+          'aria-expanded',
+          String(open)
+        );
+
+      }
+
     }
+
 
     if(ham){
-      ham.addEventListener('click', ()=>{
-        const isOpen = navLinks && navLinks.classList.contains('is-open');
-        setMenuState(!isOpen);
-      });
+
+      ham.addEventListener(
+        'click',
+        () => {
+
+          const isOpen =
+            navLinks &&
+            navLinks.classList.contains(
+              'is-open'
+            );
+
+          setMenuState(!isOpen);
+
+        }
+      );
+
     }
+
 
     if(menuClose){
-      menuClose.addEventListener('click', ()=> setMenuState(false));
+
+      menuClose.addEventListener(
+        'click',
+        () => setMenuState(false)
+      );
+
     }
 
-    // Navegación suave: al pulsar un enlace se desplaza hacia la sección correspondiente y se marca como activa.
-    const sections = document.querySelectorAll('main section[id], main[id]');
-    // Quita la clase active de todos los enlaces y se la asigna únicamente al enlace recibido.
-    // De esta forma solo una sección aparece seleccionada a la vez.
+
+    /* ==================================================
+       NAVEGACIÓN
+    =================================================== */
+
+    const sections =
+      document.querySelectorAll(
+        'main section[id], main[id]'
+      );
+
+
     function setActiveNav(link){
-      document.querySelectorAll('.nav-links a').forEach(item => item.classList.toggle('active', item === link));
+
+      document
+        .querySelectorAll('.nav-links a')
+        .forEach(item => {
+
+          item.classList.toggle(
+            'active',
+            item === link
+          );
+
+        });
+
     }
-    // Inicializa el enlace activo según el fragmento (#) presente en la URL.
+
+
     let initNavActive = null;
-    if(window.location && window.location.hash){
-      initNavActive = document.querySelector('.nav-links a[href="' + window.location.hash + '"]');
+
+
+    if(
+      window.location &&
+      window.location.hash
+    ){
+
+      initNavActive =
+        document.querySelector(
+          '.nav-links a[href="' +
+          window.location.hash +
+          '"]'
+        );
+
     }
-    // Solo se marca un enlace al iniciar si el hash de la URL coincide con uno de los enlaces del menú.
-    if(initNavActive) setActiveNav(initNavActive);
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        e.preventDefault();
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el){
-          setActiveNav(a);
-          el.scrollIntoView({behavior:'smooth',block:'start'});
-          if(window.innerWidth < 700 && navLinks){setMenuState(false)}
+
+
+    if(initNavActive){
+
+      setActiveNav(
+        initNavActive
+      );
+
+    }
+
+
+    document
+      .querySelectorAll(
+        'a[href^="#"]'
+      )
+      .forEach(a => {
+
+        a.addEventListener(
+          'click',
+          event => {
+
+            event.preventDefault();
+
+            const id =
+              a
+                .getAttribute('href')
+                .slice(1);
+
+            const element =
+              document.getElementById(id);
+
+            if(element){
+
+              setActiveNav(a);
+
+              element.scrollIntoView({
+                behavior:'smooth',
+                block:'start'
+              });
+
+              if(
+                window.innerWidth < 700 &&
+                navLinks
+              ){
+
+                setMenuState(false);
+
+              }
+
+            }
+
+          }
+        );
+
+      });
+
+
+    if('IntersectionObserver' in window){
+
+      const navObserver =
+        new IntersectionObserver(
+          entries => {
+
+            entries.forEach(entry => {
+
+              if(
+                !entry.isIntersecting
+              ){
+
+                return;
+
+              }
+
+              const id =
+                entry.target
+                  .getAttribute('id');
+
+              const link =
+                document.querySelector(
+                  `.nav-links a[href="#${id}"]`
+                );
+
+              if(link){
+
+                setActiveNav(link);
+
+              }
+
+            });
+
+          },
+          {
+            threshold:0.35
+          }
+        );
+
+
+      sections.forEach(
+        section =>
+          navObserver.observe(section)
+      );
+
+    }
+
+
+    /* ==================================================
+       BOTÓN EXPLORAR
+    =================================================== */
+
+    const explorar =
+      document.getElementById(
+        'explorar'
+      );
+
+
+    if(explorar){
+
+      explorar.addEventListener(
+        'click',
+        () => {
+
+          const conoce =
+            document.getElementById(
+              'conoce'
+            );
+
+          if(conoce){
+
+            conoce.scrollIntoView({
+              behavior:'smooth'
+            });
+
+          }
+
         }
-      });
-    });
+      );
 
-    // IntersectionObserver detecta qué sección está visible mientras el usuario hace scroll.
-    // Cuando una sección alcanza el porcentaje indicado, se actualiza el enlace activo del menú.
-    const navObserver = new IntersectionObserver((entries)=>{
-      entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        const id = entry.target.getAttribute('id');
-        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-        if(link) setActiveNav(link);
-      });
-    }, { threshold: 0.35 });
-    sections.forEach(section => navObserver.observe(section));
-
-    // Botón principal del Hero: lleva al usuario suavemente hacia la sección que explica la carrera.
-    document.getElementById('explorar').addEventListener('click', ()=>{
-      document.getElementById('conoce').scrollIntoView({behavior:'smooth'});
-    });
-
-    // Observador de aparición: detecta cuándo un elemento entra en pantalla y activa su animación.
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}
-      })
-    },{threshold:0.12});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-    // Catálogo de la galería: contiene la información de las fotografías de cada grado.
-    // Objeto de datos de la galería.
-    // Cada grado tiene una lista de fotografías. src contiene la ruta de la imagen;
-    // alt describe la imagen para accesibilidad; label muestra una etiqueta visual;
-    // size controla si la tarjeta se presenta como alta, ancha o pequeña.
-    const galleryCatalog = {
-      decimo: [
-        { src: '', alt: '10.º grado · fotografía 01', label: 'Experiencia', size: 'tall' },
-        { src: '', alt: '10.º grado · fotografía 02', label: 'Clase', size: 'wide' },
-        { src: '', alt: '10.º grado · fotografía 03', label: 'Proyecto', size: 'small' },
-        { src: '', alt: '10.º grado · fotografía 04', label: 'Aprendizaje', size: 'tall' },
-        { src: '', alt: '10.º grado · fotografía 05', label: 'Equipo', size: 'small' },
-        { src: '', alt: '10.º grado · fotografía 06', label: 'Creación', size: 'wide' }
-      ],
-      undecimo: [
-        { src: '', alt: '11.º grado · fotografía 01', label: 'Laboratorio', size: 'wide' },
-        { src: '', alt: '11.º grado · fotografía 02', label: 'Ideas', size: 'tall' },
-        { src: '', alt: '11.º grado · fotografía 03', label: 'Trabajo', size: 'small' },
-        { src: '', alt: '11.º grado · fotografía 04', label: 'Tecnología', size: 'wide' },
-        { src: '', alt: '11.º grado · fotografía 05', label: 'Desafío', size: 'small' },
-        { src: '', alt: '11.º grado · fotografía 06', label: 'Progreso', size: 'tall' }
-      ],
-      duodecimo: [
-        { src: '', alt: '12.º grado · fotografía 01', label: 'Futuro', size: 'tall' },
-        { src: '', alt: '12.º grado · fotografía 02', label: 'Proyecto', size: 'small' },
-        { src: '', alt: '12.º grado · fotografía 03', label: 'Equipo', size: 'wide' },
-        { src: '', alt: '12.º grado · fotografía 04', label: 'Solución', size: 'small' },
-        { src: '', alt: '12.º grado · fotografía 05', label: 'Innovación', size: 'wide' },
-        { src: '', alt: '12.º grado · fotografía 06', label: 'Logro', size: 'tall' }
-      ]
-    };
-
-    // Genera una imagen SVG provisional directamente desde JavaScript.
-    // Esto permite que la galería siga mostrando una tarjeta aunque todavía no exista
-    // una fotografía real en la propiedad src.
-    function buildPlaceholderSVG(label){
-      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stop-color="#111b2d"/>
-              <stop offset="100%" stop-color="#0d1422"/>
-            </linearGradient>
-          </defs>
-          <rect width="800" height="1000" fill="url(#g)"/>
-          <rect x="70" y="70" width="660" height="860" rx="28" fill="rgba(255,255,255,0.02)" stroke="rgba(59,130,246,0.22)"/>
-          <circle cx="400" cy="410" r="120" fill="rgba(59,130,246,0.12)"/>
-          <path d="M318 392l54 54 112-122 56 56-168 182-122-126 68-44z" fill="rgba(59,130,246,0.28)"/>
-          <text x="400" y="610" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="700" fill="#dfe9ff">FOTO</text>
-          <text x="400" y="668" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#9aa8bc">${label || 'Próximamente'}</text>
-        </svg>
-      `);
     }
 
-    // Construye dinámicamente una tarjeta de galería.
-    // En lugar de escribir manualmente cada <figure> en HTML, JavaScript crea los elementos
-    // utilizando los datos del catálogo y los inserta en la galería correspondiente.
-    function createGalleryItem(item, grade, index){
-      const figure = document.createElement('figure');
-      figure.className = `gallery-item ${item.size || 'small'}`;
 
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'gallery-figure';
-      button.setAttribute('aria-label', item.alt || 'Ver fotografía');
-      button.dataset.grade = grade;
-      button.dataset.index = index;
+    /* ==================================================
+       ANIMACIONES REVEAL
+    =================================================== */
 
-      const img = document.createElement('img');
-      const placeholderSrc = buildPlaceholderSVG(item.label || 'Próximamente');
-      img.src = item.src || placeholderSrc;
-      img.alt = item.alt || 'Fotografía de la experiencia';
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      img.dataset.safeSrc = img.src;
-      // Si la imagen real no existe o falla al cargar, se sustituye automáticamente por el placeholder.
-      // Esto evita que la galería muestre imágenes rotas.
-      img.onerror = () => {
-        img.onerror = null;
-        img.src = placeholderSrc;
-        img.dataset.safeSrc = img.src;
-      };
-      img.onload = () => {
-        img.dataset.safeSrc = img.currentSrc || img.src;
-      };
+    if('IntersectionObserver' in window){
 
-      const info = document.createElement('div');
-      info.className = 'gallery-info';
-      info.innerHTML = `<span>${item.label || 'Experiencia'}</span><span class="gallery-magnify" aria-hidden="true">+</span>`;
+      const io =
+        new IntersectionObserver(
+          entries => {
+
+            entries.forEach(
+              entry => {
+
+                if(
+                  entry.isIntersecting
+                ){
+
+                  entry.target
+                    .classList
+                    .add('visible');
+
+                  io.unobserve(
+                    entry.target
+                  );
+
+                }
+
+              }
+            );
+
+          },
+          {
+            threshold:0.12
+          }
+        );
+
+
+      document
+        .querySelectorAll('.reveal')
+        .forEach(
+          element =>
+            io.observe(element)
+        );
+
+    }
+    else{
+
+      document
+        .querySelectorAll('.reveal')
+        .forEach(
+          element =>
+            element.classList.add(
+              'visible'
+            )
+        );
+
+    }
+
+
+    /* ==================================================
+       GALERÍA ÚNICA
+    =================================================== */
+
+    const galleryCatalog =
+      Array.from(
+        {
+          length:16
+        },
+        (_, index) => {
+
+          return {
+
+            src:
+              `assets/img/galeria/Foto (${index + 1}).jpeg`,
+
+            alt:
+              `Fotografía ${index + 1} de nuestra experiencia`,
+
+            label:
+              `Foto ${index + 1}`,
+
+            size:
+              [
+                'tall',
+                'wide',
+                'small'
+              ][index % 3]
+
+          };
+
+        }
+      );
+
+
+    /* ==================================================
+       PLACEHOLDER DE GALERÍA
+    =================================================== */
+
+    function buildPlaceholderSVG(label){
+
+      return (
+        'data:image/svg+xml;charset=UTF-8,' +
+        encodeURIComponent(`
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 800 1000"
+          >
+
+            <defs>
+
+              <linearGradient
+                id="g"
+                x1="0"
+                x2="1"
+                y1="0"
+                y2="1"
+              >
+
+                <stop
+                  offset="0%"
+                  stop-color="#111b2d"
+                />
+
+                <stop
+                  offset="100%"
+                  stop-color="#0d1422"
+                />
+
+              </linearGradient>
+
+            </defs>
+
+
+            <rect
+              width="800"
+              height="1000"
+              fill="url(#g)"
+            />
+
+
+            <rect
+              x="70"
+              y="70"
+              width="660"
+              height="860"
+              rx="28"
+              fill="rgba(255,255,255,0.02)"
+              stroke="rgba(59,130,246,0.22)"
+            />
+
+
+            <circle
+              cx="400"
+              cy="410"
+              r="120"
+              fill="rgba(59,130,246,0.12)"
+            />
+
+
+            <path
+              d="
+                M318 392
+                l54 54
+                112-122
+                56 56
+                -168 182
+                -122-126
+                68-44z
+              "
+              fill="rgba(59,130,246,0.28)"
+            />
+
+
+            <text
+              x="400"
+              y="610"
+              text-anchor="middle"
+              font-family="Segoe UI, Arial, sans-serif"
+              font-size="38"
+              font-weight="700"
+              fill="#dfe9ff"
+            >
+              FOTO
+            </text>
+
+
+            <text
+              x="400"
+              y="668"
+              text-anchor="middle"
+              font-family="Segoe UI, Arial, sans-serif"
+              font-size="22"
+              fill="#9aa8bc"
+            >
+              ${label || 'Próximamente'}
+            </text>
+
+          </svg>
+
+        `)
+      );
+
+    }
+
+
+    /* ==================================================
+       CREAR ELEMENTO DE GALERÍA
+    =================================================== */
+
+    function createGalleryItem(
+      item,
+      index
+    ){
+
+      const figure =
+        document.createElement(
+          'figure'
+        );
+
+
+      figure.className =
+        `gallery-item ${item.size || 'small'}`;
+
+
+      const button =
+        document.createElement(
+          'button'
+        );
+
+
+      button.type =
+        'button';
+
+
+      button.className =
+        'gallery-figure';
+
+
+      button.setAttribute(
+        'aria-label',
+        item.alt ||
+        'Ver fotografía'
+      );
+
+
+      button.dataset.index =
+        index;
+
+
+      const img =
+        document.createElement(
+          'img'
+        );
+
+
+      const placeholderSrc =
+        buildPlaceholderSVG(
+          item.label ||
+          'Próximamente'
+        );
+
+
+      img.src =
+        item.src;
+
+
+      img.alt =
+        item.alt ||
+        'Fotografía de la experiencia';
+
+
+      img.loading =
+        'lazy';
+
+
+      img.decoding =
+        'async';
+
+
+      img.dataset.safeSrc =
+        item.src;
+
+
+      img.onerror =
+        () => {
+
+          img.onerror =
+            null;
+
+          img.src =
+            placeholderSrc;
+
+          img.dataset.safeSrc =
+            placeholderSrc;
+
+        };
+
+
+      img.onload =
+        () => {
+
+          img.dataset.safeSrc =
+            img.currentSrc ||
+            img.src;
+
+        };
+
+
+      const info =
+        document.createElement(
+          'div'
+        );
+
+
+      info.className =
+        'gallery-info';
+
+
+      info.innerHTML = `
+        <span>
+          ${item.label}
+        </span>
+
+        <span
+          class="gallery-magnify"
+          aria-hidden="true"
+        >
+          +
+        </span>
+      `;
+
 
       button.appendChild(img);
+
       button.appendChild(info);
+
       figure.appendChild(button);
+
+
       return figure;
+
     }
 
-    // Renderiza todas las imágenes de un grado dentro de su contenedor correspondiente.
-    // Primero limpia el contenedor y después crea una tarjeta por cada elemento del catálogo.
-    function renderGallery(grade){
-      const stage = document.querySelector(`[data-gallery="${grade}"]`);
-      if(!stage) return;
-      stage.innerHTML = '';
-      const items = galleryCatalog[grade] || [];
-      items.forEach((item, index) => stage.appendChild(createGalleryItem(item, grade, index)));
+
+    /* ==================================================
+       RENDERIZAR LAS 16 FOTOS
+    =================================================== */
+
+    const galleryContainer =
+      document.getElementById(
+        'galleryContainer'
+      );
+
+
+    if(galleryContainer){
+
+      galleryCatalog.forEach(
+        (item,index) => {
+
+          galleryContainer.appendChild(
+            createGalleryItem(
+              item,
+              index
+            )
+          );
+
+        }
+      );
+
     }
 
-    // Cambia la pestaña visible de la galería.
-    // También actualiza el botón activo para indicar qué grado está seleccionado.
-    function updateGradeView(grade){
-      document.querySelectorAll('.gallery-grade').forEach(button => {
-        button.classList.toggle('is-active', button.dataset.grade === grade);
-      });
-      document.querySelectorAll('.grade-panel').forEach(panel => {
-        const visible = panel.dataset.gradePanel === grade;
-        panel.classList.toggle('is-visible', visible);
-        panel.style.display = visible ? 'block' : 'none';
-      });
-    }
 
-    document.querySelectorAll('.gallery-grade').forEach(button => {
-      button.addEventListener('click', () => {
-        updateGradeView(button.dataset.grade);
-      });
-    });
+    /* ==================================================
+       LIGHTBOX
+    =================================================== */
 
-    Object.keys(galleryCatalog).forEach(renderGallery);
-    updateGradeView('decimo');
-
-    const lightbox = document.getElementById('lightbox');
-    const lbImage = document.getElementById('lbImage');
-    const lbClose = document.getElementById('lbClose');
-    const lbPrev = document.getElementById('lbPrev');
-    const lbNext = document.getElementById('lbNext');
-    // Estado actual del lightbox: grado mostrado, índice de la fotografía actual
-    // y lista de imágenes disponibles para poder avanzar o retroceder.
+    const lightbox =
+      document.getElementById(
+        'lightbox'
+      );
 
 
-    // Abre el visor de fotografías con la imagen seleccionada.
-    // También bloquea el scroll de la página para que el usuario se concentre en el visor.
-    function openLightbox(grade, index){
-      const gradePanel = document.querySelector(`.grade-panel[data-grade-panel="${grade}"]`);
-      if(!gradePanel) return;
-      const galleryImages = Array.from(gradePanel.querySelectorAll('.gallery-figure img'));
-      if(!galleryImages.length || index < 0 || index >= galleryImages.length) return;
-      lightboxState = { grade, index, items: galleryImages };
-      const img = galleryImages[index];
-      lbImage.src = img.dataset.safeSrc || img.src;
-      lbImage.alt = img.alt || 'Fotografía de la experiencia';
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
+    const lbImage =
+      document.getElementById(
+        'lbImage'
+      );
+
+
+    const lbClose =
+      document.getElementById(
+        'lbClose'
+      );
+
+
+    const lbPrev =
+      document.getElementById(
+        'lbPrev'
+      );
+
+
+    const lbNext =
+      document.getElementById(
+        'lbNext'
+      );
+
+
+    let lightboxState = {
+
+      index:0,
+
+      items:[]
+
+    };
+
+
+    function openLightbox(index){
+
+      const galleryImages =
+        Array.from(
+          document.querySelectorAll(
+            '#galleryContainer .gallery-figure img'
+          )
+        );
+
+
+      if(
+        !galleryImages.length ||
+        index < 0 ||
+        index >= galleryImages.length
+      ){
+
+        return;
+
+      }
+
+
+      lightboxState = {
+
+        index:index,
+
+        items:galleryImages
+
+      };
+
+
+      const image =
+        galleryImages[index];
+
+
+      lbImage.src =
+        image.dataset.safeSrc ||
+        image.src;
+
+
+      lbImage.alt =
+        image.alt ||
+        'Fotografía de la experiencia';
+
+
+      lightbox.classList.add(
+        'open'
+      );
+
+
+      lightbox.setAttribute(
+        'aria-hidden',
+        'false'
+      );
+
+
+      document.body.style.overflow =
+        'hidden';
+
+
       lbClose.focus();
+
     }
 
-    // Cierra el visor, restaura el scroll normal y actualiza el atributo de accesibilidad.
+
     function closeLightbox(){
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
+
+      lightbox.classList.remove(
+        'open'
+      );
+
+
+      lightbox.setAttribute(
+        'aria-hidden',
+        'true'
+      );
+
+
+      document.body.style.overflow =
+        '';
+
     }
 
-    document.addEventListener('click', (event) => {
-      const btn = event.target.closest('.gallery-figure');
-      if(!btn) return;
-      const grade = btn.dataset.grade;
-      const index = Number(btn.dataset.index || 0);
-      openLightbox(grade, index);
-    });
 
-    lbClose.addEventListener('click', closeLightbox);
-    lbPrev.addEventListener('click', () => {
-      if(!lightboxState.items.length) return;
-      const nextIndex = (lightboxState.index - 1 + lightboxState.items.length) % lightboxState.items.length;
-      openLightbox(lightboxState.grade, nextIndex);
-    });
-    lbNext.addEventListener('click', () => {
-      if(!lightboxState.items.length) return;
-      const nextIndex = (lightboxState.index + 1) % lightboxState.items.length;
-      openLightbox(lightboxState.grade, nextIndex);
-    });
-    lightbox.addEventListener('click', (event) => {
-      if(event.target === lightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', (event) => {
-      if(!lightbox.classList.contains('open')) return;
-      if(event.key === 'Escape') closeLightbox();
-      if(event.key === 'ArrowLeft') lbPrev.click();
-      if(event.key === 'ArrowRight') lbNext.click();
-    });
+    document.addEventListener(
+      'click',
+      event => {
 
-    // Carga optimizada: las imágenes utilizan lazy loading cuando no tienen configurado otro comportamiento.
-    document.querySelectorAll('img').forEach(img=>{
-      if(!img.getAttribute('loading')) img.setAttribute('loading','lazy');
-    });
+        const button =
+          event.target.closest(
+            '#galleryContainer .gallery-figure'
+          );
 
-    // Mejora visual: muestra la portada automáticamente después de un pequeño retraso al cargar la página.
-    window.addEventListener('load', ()=>{
-      setTimeout(()=>document.getElementById('heroInner').classList.add('visible'),220);
-    });
 
-    // Accesibilidad básica del visor: permite cerrar el lightbox haciendo clic fuera de la imagen.
-    lightbox.addEventListener('click',(e)=>{ if(e.target === lightbox) closeLightbox() });
+        if(!button){
 
-    // Cambio de tema: alterna entre modo oscuro y claro y guarda la preferencia en localStorage.
+          return;
+
+        }
+
+
+        const index =
+          Number(
+            button.dataset.index ||
+            0
+          );
+
+
+        openLightbox(index);
+
+      }
+    );
+
+
+    if(lbClose){
+
+      lbClose.addEventListener(
+        'click',
+        closeLightbox
+      );
+
+    }
+
+
+    if(lbPrev){
+
+      lbPrev.addEventListener(
+        'click',
+        () => {
+
+          if(
+            !lightboxState.items.length
+          ){
+
+            return;
+
+          }
+
+
+          const nextIndex =
+            (
+              lightboxState.index -
+              1 +
+              lightboxState.items.length
+            ) %
+            lightboxState.items.length;
+
+
+          openLightbox(
+            nextIndex
+          );
+
+        }
+      );
+
+    }
+
+
+    if(lbNext){
+
+      lbNext.addEventListener(
+        'click',
+        () => {
+
+          if(
+            !lightboxState.items.length
+          ){
+
+            return;
+
+          }
+
+
+          const nextIndex =
+            (
+              lightboxState.index +
+              1
+            ) %
+            lightboxState.items.length;
+
+
+          openLightbox(
+            nextIndex
+          );
+
+        }
+      );
+
+    }
+
+
+    lightbox.addEventListener(
+      'click',
+      event => {
+
+        if(
+          event.target === lightbox
+        ){
+
+          closeLightbox();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      'keydown',
+      event => {
+
+        if(
+          !lightbox.classList.contains(
+            'open'
+          )
+        ){
+
+          return;
+
+        }
+
+
+        if(
+          event.key === 'Escape'
+        ){
+
+          closeLightbox();
+
+        }
+
+
+        if(
+          event.key === 'ArrowLeft'
+        ){
+
+          lbPrev.click();
+
+        }
+
+
+        if(
+          event.key === 'ArrowRight'
+        ){
+
+          lbNext.click();
+
+        }
+
+      }
+    );
+
+
+    /* ==================================================
+       CARGA DE IMÁGENES
+    =================================================== */
+
+    document
+      .querySelectorAll('img')
+      .forEach(
+        img => {
+
+          if(
+            !img.getAttribute(
+              'loading'
+            )
+          ){
+
+            img.setAttribute(
+              'loading',
+              'lazy'
+            );
+
+          }
+
+        }
+      );
+
+
+    /* ==================================================
+       ANIMACIÓN HERO
+    =================================================== */
+
+    window.addEventListener(
+      'load',
+      () => {
+
+        const heroInner =
+          document.getElementById(
+            'heroInner'
+          );
+
+
+        if(heroInner){
+
+          setTimeout(
+            () => {
+
+              heroInner.classList.add(
+                'visible'
+              );
+
+            },
+            220
+          );
+
+        }
+
+      }
+    );
+
+
+    /* ==================================================
+       CAMBIO DE TEMA
+    =================================================== */
+
     (function(){
-      const themeKey = 'ipdvm-theme';
-      const toggle = document.getElementById('themeToggle');
-      const icon = document.getElementById('themeIcon');
+
+      const themeKey =
+        'ipdvm-theme';
+
+
+      const toggle =
+        document.getElementById(
+          'themeToggle'
+        );
+
+
+      const icon =
+        document.getElementById(
+          'themeIcon'
+        );
+
 
       function setIcon(theme){
-        if(!icon) return;
+
+        if(!icon){
+
+          return;
+
+        }
+
+
         if(theme === 'light'){
-          // Icono de sol utilizado para representar el modo claro.
-          icon.innerHTML = '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>';
-          icon.setAttribute('stroke', '#FACC15');
-          icon.setAttribute('fill', '#FACC15');
-        } else {
-          // Icono de luna utilizado para representar el modo oscuro.
-          icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />';
-          icon.setAttribute('stroke', 'currentColor');
-          icon.setAttribute('fill', 'none');
+
+          icon.innerHTML =
+            `
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+              ></circle>
+
+              <path
+                d="
+                  M12 2v2
+                  m0 16v2
+                  M4.93 4.93l1.41 1.41
+                  M17.66 17.66l1.41 1.41
+                  M2 12h2
+                  m16 0h2
+                  M4.93 19.07l1.41-1.41
+                  M17.66 6.34l1.41-1.41
+                "
+              ></path>
+            `;
+
+
+          icon.setAttribute(
+            'stroke',
+            '#FACC15'
+          );
+
+
+          icon.setAttribute(
+            'fill',
+            '#FACC15'
+          );
+
         }
+        else{
+
+          icon.innerHTML =
+            `
+              <path
+                d="
+                  M21 12.79
+                  A9 9 0 1 1
+                  11.21 3
+                  A7 7 0 0 0
+                  21 12.79z
+                "
+              />
+            `;
+
+
+          icon.setAttribute(
+            'stroke',
+            'currentColor'
+          );
+
+
+          icon.setAttribute(
+            'fill',
+            'none'
+          );
+
+        }
+
       }
 
-      // Aplica el tema solicitado modificando data-theme en <html> y actualizando el botón.
-      // CSS utiliza ese atributo para sustituir las variables de color del sitio.
+
       function applyTheme(t){
-        const theme = t === 'light' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', theme);
+
+        const theme =
+          t === 'light'
+            ? 'light'
+            : 'dark';
+
+
+        document.documentElement
+          .setAttribute(
+            'data-theme',
+            theme
+          );
+
+
         if(toggle){
-          toggle.setAttribute('aria-pressed', theme === 'light');
-          toggle.setAttribute('data-theme', theme);
+
+          toggle.setAttribute(
+            'aria-pressed',
+            theme === 'light'
+          );
+
+
+          toggle.setAttribute(
+            'data-theme',
+            theme
+          );
+
         }
+
+
         setIcon(theme);
+
       }
 
-      // Inicialización del tema: si no existe una preferencia guardada, se utiliza el modo claro.
-      let theme = localStorage.getItem(themeKey) || 'light';
+
+      let theme =
+        localStorage.getItem(
+          themeKey
+        ) ||
+        'light';
+
+
       applyTheme(theme);
 
+
       if(toggle){
-        toggle.addEventListener('click', ()=>{
-          // Invierte el tema actual: claro -> oscuro o oscuro -> claro.
-          theme = (document.documentElement.getAttribute('data-theme') === 'light') ? 'dark' : 'light';
-          localStorage.setItem(themeKey, theme);
-          toggle.classList.remove('is-animating');
-          void toggle.offsetWidth;
-          toggle.classList.add('is-animating');
-          setTimeout(()=>toggle.classList.remove('is-animating'), 550);
-          applyTheme(theme);
-        });
+
+        toggle.addEventListener(
+          'click',
+          () => {
+
+            theme =
+              document.documentElement
+                .getAttribute(
+                  'data-theme'
+                ) === 'light'
+                ? 'dark'
+                : 'light';
+
+
+            localStorage.setItem(
+              themeKey,
+              theme
+            );
+
+
+            toggle.classList.remove(
+              'is-animating'
+            );
+
+
+            void toggle.offsetWidth;
+
+
+            toggle.classList.add(
+              'is-animating'
+            );
+
+
+            setTimeout(
+              () =>
+                toggle.classList.remove(
+                  'is-animating'
+                ),
+              550
+            );
+
+
+            applyTheme(theme);
+
+          }
+        );
+
       }
+
     })();
 
-    // Los cambios de color al pasar el cursor están definidos mediante CSS.
 
-    // Mensaje de ayuda en consola para recordar que los recursos deben estar dentro de la carpeta /assets/.
-    console.log('INFORMÁTICA IPDVM · Página cargada. Revisa assets en /assets/');
+    /* ==================================================
+       MENSAJE DE CONSOLA
+    =================================================== */
+
+    console.log(
+      'INFORMÁTICA IPDVM · Página cargada. Revisa assets en /assets/'
+    );
+
 
   </script>
 

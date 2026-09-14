@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página del alumno</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Página del alumno</h1>
+      <p id="welcome"></p>
+      <div class="scanner-card">
+        <video id="video" autoplay muted playsinline></video>
+        <canvas id="canvas" aria-hidden="true"></canvas>
+      </div>
+      <p id="scanStatus" class="help-text">Apunta la cámara al QR del profesor para registrarte.</p>
+      <div id="scanResult" class="result hidden"></div>
+      <a class="secondary-link" href="index.html">Volver al inicio</a>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

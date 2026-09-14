@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIGA IPDDVM - Alumno Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-qF/myoCcB6FQVoO4f2ZHnIiG6vM4ayL9QYJjglcYyjkTprISGCT6Lyo5E7xB1N6a" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="dashboard-page">
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon"><img src="../assets/img/logo.png" alt="Logo del colegio" class="brand-logo"></div>
+        <div>
+          <h5 class="mb-0">SIGA IPDDVM</h5>
+          <small class="text-muted">Alumno</small>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a href="notas.html" class="sidebar-link"><i class="bi bi-journal-check"></i> Mis Notas</a>
+        <a href="asistencia.html" class="sidebar-link"><i class="bi bi-check2-square"></i> Mi Asistencia</a>
+        <a href="horario.html" class="sidebar-link"><i class="bi bi-calendar3"></i> Mi Horario</a>
+        <a href="perfil.html" class="sidebar-link"><i class="bi bi-person-circle"></i> Mi Perfil</a>
+        <a href="../index.html" class="sidebar-link"><i class="bi bi-box-arrow-in-left"></i> Cerrar sesión</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h2>Bienvenido, Ángel Hernández</h2>
+          <p>Panel estudiantil del Instituto Polivalente Dr. Doroteo Varela Mejía.</p>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+          <span class="badge bg-soft-primary">Alumno</span>
+          <span class="text-muted">11º Grado</span>
+        </div>
+            <button id="theme-toggle" class="btn btn-outline-secondary theme-toggle" type="button" aria-label="Cambiar tema"><i class="bi bi-moon-stars-fill"></i></button>\n    </div>
+
+      <div class="hero-panel">
+        <h3>Tu campus digital en Yarumela, La Paz</h3>
+        <p>Accede a tus calificaciones, asistencia, horario y noticias del instituto desde un solo lugar, con diseño institucional moderno y enfocado en la comunidad hondureña.</p>
+        <div class="hero-features">
+          <div class="hero-feature"><i class="bi bi-book"></i><span>Biblioteca digital y recursos</span></div>
+          <div class="hero-feature"><i class="bi bi-calendar-event"></i><span>Eventos y actividades escolares</span></div>
+          <div class="hero-feature"><i class="bi bi-chat-left-text"></i><span>Comunicación con docentes</span></div>
+          <div class="hero-feature"><i class="bi bi-award"></i><span>Reconocimientos académicos</span></div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stats-card">
+          <h3>Promedio General</h3>
+          <strong>8.9</strong>
+        </div>
+        <div class="stats-card">
+          <h3>Asistencia</h3>
+          <strong>92%</strong>
+        </div>
+        <div class="stats-card">
+          <h3>Cursos Matriculados</h3>
+          <strong>6</strong>
+        </div>
+        <div class="stats-card">
+          <h3>Próximas Evaluaciones</h3>
+          <strong>3</strong>
+        </div>
+      </div>
+
+      <div class="card-custom">
+        <h4>Resumen académico</h4>
+        <p class="text-muted">Revisa tu rendimiento, tareas y asistencia en un solo lugar.</p>
+        <div class="row mt-4">
+          <div class="col-lg-6 mb-3">
+            <div class="card-custom h-100">
+              <h5>Próxima evaluación</h5>
+              <p class="text-muted mb-1">Matemáticas - Álgebra</p>
+              <strong>Jueves, 6 de junio</strong>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-3">
+            <div class="card-custom h-100">
+              <h5>Mensaje institucional</h5>
+              <p class="text-muted mb-2">Recordatorio: entrega de proyecto de tecnología el viernes.</p>
+              <span class="badge bg-soft-warning">Importante</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-custom">
+        <h4>Accesos rápidos</h4>
+        <div class="quick-actions">
+          <div class="quick-action"><i class="bi bi-megaphone"></i><span>Ver anuncios del colegio</span></div>
+          <div class="quick-action"><i class="bi bi-book-half"></i><span>Explorar recursos de estudio</span></div>
+          <div class="quick-action"><i class="bi bi-people"></i><span>Solicitar tutoría</span></div>
+          <div class="quick-action"><i class="bi bi-headset"></i><span>Contactar soporte académico</span></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>
+
+
+
+

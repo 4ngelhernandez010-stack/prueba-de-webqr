@@ -1,0 +1,171 @@
+DOCUMENTACIÓN DEL PROYECTO SIGA-IPDDVM
+
+1. Estructura general
+---------------------
+Este proyecto es un prototipo estático de un sistema académico llamado SIGA IPDDVM. Está compuesto por páginas HTML, una hoja de estilos CSS, un script de JavaScript y recursos de imagen.
+
+2. Archivos principales en la raíz
+----------------------------------
+index.html
+  - Página principal de presentación del proyecto.
+  - Muestra la portada del instituto con secciones de información, características, noticias, matrícula y un llamado a iniciar sesión.
+  - Incluye un menú de navegación superior que enlaza con las páginas institucionales y el login.
+  - Usa Bootstrap para estilos básicos y Bootstrap Icons para iconos.
+  - Carga el archivo CSS de diseño y el script de comportamiento.
+
+login.html
+  - Página de acceso al sistema.
+  - Contiene una tarjeta de inicio de sesión con un flujo de dos pasos: primero correo institucional y luego contraseña.
+  - Tiene botones de demostración que permiten entrar directamente como alumno, profesor o director.
+  - Usa el mismo CSS y script que el resto del proyecto.
+
+panel-contacto.html
+panel-matriculas.html
+panel-nosotros.html
+panel-noticias.html
+panel-servicios.html
+  - Páginas de contenido institucional pertenecientes al sitio público del instituto.
+  - Cada página tiene navegación superior, sección de héroe con título y descripción, y un área de información relacionada.
+  - Están diseñadas como páginas informativas que refuerzan el prototipo y la presencia del instituto.
+
+3. Carpeta assets
+------------------
+assets/css/style.css
+  - Hoja de estilos principal del proyecto.
+  - Define variables CSS en :root para colores, tipografía, sombras, estados oscuros y paneles.
+  - Establece estilos base para body, a, botones e inputs.
+  - Contiene reglas para el modo claro y modo oscuro usando la clase body.dark-mode.
+  - Administra la apariencia de la navegación, secciones de héroe, tarjetas, botones, tablas, formularios, paneles, iconos y pie de página.
+  - Incluye reglas de transición suave, tamaño mínimo de elementos táctiles y ajustes responsive.
+
+assets/js/app.js
+  - Script de comportamiento global.
+  - Detecta la página actual y marca el enlace activo del menú de navegación.
+  - Gestiona el cambio de tema entre claro y oscuro.
+  - Guarda la preferencia de tema en localStorage para mantenerla entre recargas.
+  - Controla el formulario de login de dos pasos: email primero, luego contraseña.
+  - Incluye interacción para cambiar el correo ingresado y simular el envío de la contraseña.
+
+assets/img/logo.png
+  - Imagen usada como logotipo del instituto en la cabecera, tarjetas y branding general.
+
+4. Carpeta alumno
+------------------
+Estos archivos representan el panel del estudiante.
+
+alumno/dashboard.html
+  - Página de inicio del alumno, con resumen de datos académicos.
+  - Incluye secciones tipo hero, tarjetas rápidas, estadísticas y accesos directos.
+  - Usa una barra lateral de navegación para moverse entre secciones de alumno.
+
+alumno/asistencia.html
+  - Muestra el estado de asistencia del alumno.
+  - Contiene tarjetas de resumen con totales y un reporte semanal.
+
+alumno/horario.html
+  - Presenta el horario semanal del alumno.
+  - Muestra una tabla con materias y días.
+
+alumno/notas.html
+  - Muestra las calificaciones del alumno.
+  - Incluye una tabla con materias, notas y profesores.
+
+alumno/perfil.html
+  - Contiene la información personal del alumno.
+  - Muestra datos de contacto, curso y perfil del estudiante.
+
+5. Carpeta profesor
+-------------------
+Estos archivos representan el panel del profesorado.
+
+profesor/dashboard.html
+  - Panel principal del profesor, con indicadores de clases y tareas.
+
+profesor/asistencia.html
+  - Página para ver el registro de asistencia de alumnos.
+  - Incluye una tabla de asistencia por estudiante.
+
+profesor/calificaciones.html
+  - Página para acceder y revisar calificaciones.
+  - Presenta una tabla con alumnos, materias y notas de ejemplo.
+
+profesor/estudiantes.html
+  - Lista de estudiantes a cargo del profesor.
+  - Presenta una tabla de nombres, grados y materias.
+
+profesor/horario.html
+  - Muestra el horario docente.
+  - Incluye clases y actividades organizadas por día.
+
+6. Carpeta director
+-------------------
+Estos archivos representan el panel del equipo directivo.
+
+director/dashboard.html
+  - Panel principal del director con métricas e indicadores institucionales.
+
+director/configuracion.html
+  - Página de configuración institucional.
+  - Presenta datos del instituto y campos de contacto.
+
+director/docentes.html
+  - Lista de docentes registrados.
+  - Contiene tabla con nombres, materias y puestos.
+
+director/estudiantes.html
+  - Lista de estudiantes del instituto.
+  - Muestra nombres, grados, materias y observaciones.
+
+director/reportes.html
+  - Página de indicadores de reporte institucional.
+  - Incluye métricas de rendimiento y retención.
+
+director/usuarios.html
+  - Página de gestión de usuarios.
+  - Diseñada para mostrar información de cuentas institucionales.
+
+7. Explicación por partes de lo que hace cada cosa
+---------------------------------------------------
+HTML
+  - DOCTYPE y <html lang="es">: definen que la página es HTML5 y está en español.
+  - <meta charset="UTF-8">: establece la codificación de caracteres para mostrar acentos y símbolos correctamente.
+  - <meta name="viewport" content="width=device-width, initial-scale=1.0">: hace que la página sea responsive en móviles.
+  - <link rel="stylesheet" ...>: importa Bootstrap, Bootstrap Icons y la hoja de estilos propia.
+  - <script src="assets/js/app.js"></script>: carga el script que activa el tema oscuro, el login y la navegación.
+
+CSS
+  - Variables en :root: centralizan los colores, facilitando cambios de diseño.
+  - body y body.dark-mode: definen la apariencia base para tema claro y oscuro.
+  - .landing-page y .dashboard-page: distinguen estilos para la página pública y los paneles internos.
+  - .landing-nav y .sidebar: representan los menús superiores y laterales.
+  - .hero-section, .hero-copy, .hero-image: organizan el contenido principal de la portada.
+  - .card-custom, .stats-card, .contact-card, .info-card: estilos compartidos para paneles de contenido.
+  - .btn, .theme-toggle, .quick-action: botones con interacción visual fluida.
+  - @media: ajusta el diseño en pantallas pequeñas para que sea usable en móviles.
+
+JavaScript
+  - DOMContentLoaded: espera a que el DOM esté listo antes de manipular elementos.
+  - links.forEach(...): marca el enlace activo del menú según la ruta.
+  - themeToggle: cambia entre tema claro y oscuro y guarda la preferencia en localStorage.
+  - loginEmailInput y loginPasswordStep: administran el comportamiento del formulario de login en dos pasos.
+  - changeEmailButton: permite regresar y editar el correo antes de continuar.
+  - loginSubmit: simula el envío de la contraseña y muestra un texto de carga breve.
+
+8. Cómo se organiza la navegación y el tema
+-------------------------------------------
+  - Las páginas de landing tienen la clase body.landing-page para aplicar el estilo público.
+  - Las páginas de usuario tienen body.dashboard-page para un diseño de panel con sidebar.
+  - El script se encarga de alternar la clase body.dark-mode según preferencia.
+  - El botón del tema cambia su icono y anima una pequeña rotación.
+
+9. Uso general del prototipo
+---------------------------
+  - El visitante llega por index.html y puede navegar al contenido institucional.
+  - Desde el login puede entrar como alumno, profesor o director en modo demo.
+  - Las secciones internas de alumno/profesor/director muestran cómo sería un panel de usuario con estadísticas, tablas y contenido académico.
+
+10. Notas adicionales
+--------------------
+  - El proyecto es un prototipo visual, no una aplicación con autenticación real.
+  - El login y los botones de demostración son simulados y no validan credenciales en un servidor.
+  - Las tablas y datos son estáticos y sirven para mostrar la estructura del panel.

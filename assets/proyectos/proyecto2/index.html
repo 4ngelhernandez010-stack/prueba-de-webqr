@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Connect | Gestión de clases</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="index.html">Campus Connect</a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Abrir navegación">Menú</button>
+      <nav class="nav-links" data-primary-nav>
+        <a href="#features">Características</a>
+        <a href="#workflow">Cómo funciona</a>
+        <a href="pages/info/about.html">Sobre nosotros</a>
+        <a href="pages/info/help.html">Ayuda</a>
+      </nav>
+      <a class="button outline-button animated-button" href="pages/auth/login.html">Iniciar sesión</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="badge">Nuevo lanzamiento</span>
+          <h1>Controla tus clases, asistencia y usuarios desde cualquier dispositivo.</h1>
+          <p>Campus Connect es una plataforma ligera y moderna para profesores y alumnos, con acceso por correo, creación de cuenta y recuperación de clave. Todo organizado en carpetas para un desarrollo profesional y escalable.</p>
+          <div class="hero-actions">
+            <a class="button solid-button animated-button" href="pages/auth/login.html">Comenzar ahora</a>
+            <a class="button ghost-button animated-button" href="pages/info/about.html">Ver más</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <span>Panel educativo</span>
+            <strong>Dashboard responsive</strong>
+          </div>
+          <div class="hero-card-body">
+            <div class="info-row"><strong>Roles</strong><span>Profesor y alumno</span></div>
+            <div class="info-row"><strong>Autenticación</strong><span>Correo, registro y recuperación</span></div>
+            <div class="info-row"><strong>Organización</strong><span>Archivos separados por carpetas</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section container">
+      <div class="section-header">
+        <span class="section-label">Características</span>
+        <h2>Todo lo necesario para una experiencia educativa clara y moderna.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Autenticación completa</h3>
+          <p>Ingreso con email y contraseña, opción de registro, recuperación y simulación de inicio con Google.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Paneles distintos</h3>
+          <p>Vista separada para profesores y alumnos, con QR dinámico y control de asistencia.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Diseño responsive</h3>
+          <p>Interfaz optimizada para celulares, tablets y escritorios, con navegación clara y secciones fáciles de leer.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Estructura profesional</h3>
+          <p>Archivos organizados en carpetas: `assets/css`, `assets/js`, `pages/auth`, `pages/dashboard`, `pages/info`.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="workflow" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Flujo</span>
+          <h2>Cómo trabaja la plataforma</h2>
+        </div>
+        <div class="process-grid">
+          <article class="process-card">
+            <h3>1. Regístrate o inicia sesión</h3>
+            <p>Usa tu correo para crear una cuenta o ingresa con un usuario existente. Si olvidas tu contraseña, recibe un enlace simulado de recuperación.</p>
+          </article>
+          <article class="process-card">
+            <h3>2. Selecciona tu rol</h3>
+            <p>El sistema reconoce si eres alumno o profesor y te dirige al panel adecuado según tu cuenta o correo.</p>
+          </article>
+          <article class="process-card">
+            <h3>3. Gestiona tus clases</h3>
+            <p>Los profesores generan códigos QR y los alumnos los escanean para registrar su asistencia al instante.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container cards-overview">
+      <article class="info-panel">
+        <h2>Una solución pensada para el aula moderna</h2>
+        <p>Campus Connect es una base escalable que puede crecer con más funciones: reportes, usuarios, notificaciones y acceso real mediante APIs de autenticación.</p>
+      </article>
+      <div class="cards-list">
+        <div class="mini-card">
+          <h3>Soporte móvil</h3>
+          <p>El contenido y los botones se adaptan para una experiencia cómoda en pantallas pequeñas.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Panel limpio</h3>
+          <p>Diseño con tarjetas, jerarquía clara y componentes sencillos para la gestión de clases.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Arquitectura ordenada</h3>
+          <p>Separación de páginas y recursos para facilitar futuros desarrollos y mantenibilidad.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Campus Connect</strong>
+        <p>Solución educativa con autenticación, dashboard y recursos móviles.</p>
+      </div>
+      <div class="footer-links">
+        <a href="pages/info/about.html">Sobre nosotros</a>
+        <a href="pages/info/help.html">Ayuda</a>
+        <a href="pages/auth/login.html">Iniciar sesión</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

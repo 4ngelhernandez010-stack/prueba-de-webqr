@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumno | Campus Connect</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="../../index.html">Campus Connect</a>
+      <a class="button outline-button" href="../../pages/auth/login.html">Cerrar sesión</a>
+    </div>
+  </header>
+  <main class="container">
+    <section class="form-card">
+      <div class="dashboard-header">
+        <div>
+          <h1>Panel del alumno</h1>
+          <p>Escanea el QR del profesor para completar tu asistencia.</p>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Bienvenido</h2>
+        <p id="welcome"></p>
+      </div>
+      <div class="panel">
+        <h2>Escanea el QR</h2>
+        <div class="scanner-card">
+          <video id="video" autoplay muted playsinline></video>
+          <canvas id="canvas" aria-hidden="true"></canvas>
+        </div>
+        <p id="scanStatus" class="help-text">Apunta la cámara al QR del profesor para registrarte.</p>
+        <div id="scanResult" class="result hidden"></div>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+  <script src="../../assets/js/dashboard.js"></script>
+</body>
+</html>

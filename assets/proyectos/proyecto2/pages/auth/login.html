@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesión | Campus Connect</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="../../index.html">Campus Connect</a>
+      <a class="button outline-button" href="signup.html">Crear cuenta</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="form-card">
+      <h1>Iniciar sesión</h1>
+      <p>Accede con tu correo y contraseña para continuar.</p>
+      <button id="googleSignIn" type="button" class="google-button">
+        <span class="google-icon" aria-hidden="true"></span>
+        Continuar con Google
+      </button>
+      <div class="divider"><span>o</span></div>
+      <form id="loginForm" class="form-grid">
+        <label>
+          Correo electrónico
+          <input id="loginEmail" name="email" type="email" autocomplete="email" required placeholder="ejemplo@dominio.com" />
+        </label>
+        <label>
+          Contraseña
+          <input id="loginPassword" name="password" type="password" autocomplete="current-password" required placeholder="Tu contraseña" />
+        </label>
+        <button type="submit" class="solid-button">Ingresar</button>
+      </form>
+      <div class="form-actions">
+        <a class="text-button" href="forgot.html">Olvidé mi contraseña</a>
+        <a class="text-button" href="signup.html">Cree una cuenta</a>
+      </div>
+      <div id="authMessage" class="status-message hidden" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="../../assets/js/auth.js"></script>
+</body>
+</html>

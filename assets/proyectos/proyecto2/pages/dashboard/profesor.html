@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profesor | Campus Connect</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="../../index.html">Campus Connect</a>
+      <a class="button outline-button" href="../../pages/auth/login.html">Cerrar sesión</a>
+    </div>
+  </header>
+  <main class="container">
+    <section class="form-card">
+      <div class="dashboard-header">
+        <div>
+          <h1>Panel del profesor</h1>
+          <p>Comparte el código QR con tus alumnos para registrar asistencia de forma sencilla.</p>
+        </div>
+      </div>
+      <div class="dashboard-grid">
+        <div class="panel">
+          <h2>Bienvenido</h2>
+          <p id="welcome"></p>
+          <div class="session-code">Sesión: <span id="sessionId"></span></div>
+        </div>
+        <div class="panel">
+          <h2>Instrucciones</h2>
+          <p>Abre la página de alumno, apunta con la cámara al QR y confirma la asistencia.</p>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>QR de acceso</h2>
+        <div class="qr-box">
+          <div id="qrContainer"></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Alumnos conectados</h2>
+        <ul id="studentList" class="student-list"></ul>
+        <div id="noStudents" class="empty">Aún no se han registrado alumnos.</div>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="../../assets/js/dashboard.js"></script>
+</body>
+</html>

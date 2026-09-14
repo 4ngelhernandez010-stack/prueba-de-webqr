@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear cuenta | Campus Connect</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="../../index.html">Campus Connect</a>
+      <a class="button outline-button" href="login.html">Iniciar sesión</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="form-card">
+      <h1>Crear cuenta</h1>
+      <p>Regístrate como profesor o alumno para empezar.</p>
+      <form id="signupForm" class="form-grid">
+        <label>
+          Nombre completo
+          <input id="signupName" name="name" type="text" autocomplete="name" required placeholder="Tu nombre completo" />
+        </label>
+        <label>
+          Correo electrónico
+          <input id="signupEmail" name="email" type="email" autocomplete="email" required placeholder="ejemplo@dominio.com" />
+        </label>
+        <label>
+          Contraseña
+          <input id="signupPassword" name="password" type="password" autocomplete="new-password" required placeholder="Crea una contraseña" />
+        </label>
+        <label>
+          Repetir contraseña
+          <input id="signupConfirm" name="confirmPassword" type="password" autocomplete="new-password" required placeholder="Confirma tu contraseña" />
+        </label>
+        <label>
+          Tipo de cuenta
+          <select id="signupRole" name="role">
+            <option value="alumno">Alumno</option>
+            <option value="profesor">Profesor</option>
+          </select>
+        </label>
+        <button type="submit" class="solid-button">Crear cuenta</button>
+      </form>
+      <div class="form-actions">
+        <a class="text-button" href="login.html">Ya tengo cuenta</a>
+      </div>
+      <div id="authMessage" class="status-message hidden" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="../../assets/js/auth.js"></script>
+</body>
+</html>
